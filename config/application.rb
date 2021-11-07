@@ -35,9 +35,9 @@ module WorkFinder
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    # Set default locale :en (English)
-    I18n.default_locale = :en
     # Whitelist locales avialable (English, Russian, Deutsche)
-    I18n.avialable_locales = [:en, :ru, :de]
+    config.i18n.available_locales = [ :en, :ru, :de]
+    # Set default locale :en (English)
+    config.i18n.default_locale = :en
   end
 end
