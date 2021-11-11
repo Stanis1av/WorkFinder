@@ -1,0 +1,5 @@
+ru:
+  layouts:
+    navbar:
+      home: "Главная"
+      about: "О Нас"
