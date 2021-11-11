@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
 
     # Debug logger
     # logger.debug "browser_locale: #{browser_locale}"
-    # logger.debug "current host: #{request.host.inspect}"
-    # logger.debug "first host element: #{request.host.split('.').first.inspect}"
-    # logger.debug "available locales = #{I18n.available_locales.map(&:to_s).inspect}"
-    # logger.debug "I18n.locale = #{I18n.locale}"
+    logger.debug "current host: #{request.host.inspect}"
+    logger.debug "first host element: #{request.host.split('.').first.inspect}"
+    logger.debug "available locales = #{I18n.available_locales.map(&:to_s).inspect}"
+    logger.debug "I18n.locale = #{I18n.locale}"
   end
 
   def browser_locale
