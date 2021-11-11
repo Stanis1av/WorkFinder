@@ -3,3 +3,6 @@ en:
     navbar:
       home: "Home"
       about: "About"
+
+    language_switcher:
+      languages: "Language"

@@ -3,3 +3,6 @@ de:
       navbar:
         home: "Startseite"
         about: "Über uns"
+
+      language_switcher:
+        languages: "Sprache"

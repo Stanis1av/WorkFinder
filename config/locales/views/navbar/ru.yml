@@ -3,3 +3,6 @@ ru:
     navbar:
       home: "Главная"
       about: "О Нас"
+
+    language_switcher:
+      languages: "Язык"
