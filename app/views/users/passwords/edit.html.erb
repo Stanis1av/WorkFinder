@@ -1,25 +1,26 @@
-<h2>Change your password</h2>
+<%= render "users/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+<div class="form-devise text-center">
+  <h1 class="h3 mb-3 fw-normal">Change your password</h1>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= f.hidden_field :reset_password_token %>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+    <div class="form-floating">
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control first", placeholder: "Enter a new password" %>
+      <%= f.label :password, "Enter a new password" %>
+    </div>
 
-<%= render "users/shared/links" %>
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control last", placeholder: "Confirm new password" %>
+      <%= f.label :password_confirmation, "Confirm new password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Change my password", class: "w-100 btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
