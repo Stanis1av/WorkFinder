@@ -34,6 +34,8 @@ module WorkFinder
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # Remove HTML <div> blocks on notifications
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
 
     # Whitelist locales avialable (English, Russian, Deutsche)
     config.i18n.available_locales = [ :en, :ru, :de]
