@@ -1,11 +1,15 @@
 ru:
   layouts:
     navbar:
-      home: "Главная"
-      about: "О Нас"
+      home: Главная
+      about: О Нас
     # buttons:
-      sign_up: "Зарегистрироваться"
-      sign_in: "Войти"
+      sign_up: Зарегистрироваться
+      sign_in: Войти
+
+      sign_out: Выйти
+      edit_account: Редактировать аккаунт
+
     language_switcher:
-      languages: "Язык"
+      languages: Язык
 

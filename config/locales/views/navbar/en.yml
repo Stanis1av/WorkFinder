@@ -1,8 +1,15 @@
 en:
   layouts:
     navbar:
-      home: "Home"
-      about: "About"
+      home: Home
+      about: About
+    # buttons:
+      sign_up: Sign up
+      sign_in: Sign in
+
+      sign_out: Sign out
+      edit_account: Edit account
 
     language_switcher:
-      languages: "Language"
+      languages: Language
+

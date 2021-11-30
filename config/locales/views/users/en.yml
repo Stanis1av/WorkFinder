@@ -1,0 +1,61 @@
+en:
+  users:
+    confirmations:
+      new:
+        title: Re-send confirmation instructions
+        enter_email: Enter email
+        resend_confirmation_instructions: Re-send instructions
+    passwords:
+      edit:
+        title: Change your password
+        enter_new_password: New password
+        confirm_new_password: Confirm new password
+        change_my_password: Change my password
+      new:
+        title: Forgotten password?
+        enter_your_email: Enter your email
+        send_confirmation_instructions: Send instructions
+    registrations:
+      edit:
+        title: Edit account
+        current_email: Email
+        enter_new_password: New password
+        confirm_new_password: Confirm new password
+        characters_min: characters minimum
+        current_password: Current password
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you do not wish to modify
+        unhappy: Unhappy
+        update: Update
+        back: Back
+      new:
+        title: Sign up
+        enter_email: Enter email
+        enter_password: Enter password
+        confirm_password: Confirm your password
+        sign_up: Sign up
+    sessions:
+      new:
+        title: Sign in
+        enter_email: Enter email
+        enter_password: Enter password
+        remember_me: Remember me
+        sign_in: Sign in
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Haven't received instructions to activate your account?
+        didn_t_receive_unlock_instructions: Haven't received unlocking instructions?
+        forgot_your_password: Forgotten your password?
+        sign_in: Already registered?
+        sign_in_link: Sign in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Don't have an account?
+        sign_up_link: Sign up
+        confirmation: Password mismatch # ???
+    unlocks:
+      new:
+        title: Re-sent unlocking instructions
+        enter_email: Enter email
+        resend_unlock_instructions: Re-sent unlocking instructions

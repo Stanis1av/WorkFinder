@@ -1,0 +1,61 @@
+de:
+  users:
+    confirmations:
+      new:
+        title: Erneut Anweisungen zur Bestätigung zusenden
+        enter_email: E-Mail
+        resend_confirmation_instructions: Erneut Anweisungen zusenden
+    passwords:
+      edit:
+        title: Mein Passwort ändern
+        enter_new_password: Neues Passwort
+        confirm_new_password: Neues Passwort bestätigen
+        change_my_password: Mein Passwort ändern
+      new:
+        title: Passwort vergessen?
+        enter_your_email: E-Mail
+        send_confirmation_instructions: Anweisungen zusenden
+    registrations:
+      edit:
+        title: Bearbeiten
+        current_email: E-mail
+        enter_new_password: Neues Passwort
+        confirm_new_password: Neues Passwort bestätigen
+        characters_min: Zeichen mindestens
+        current_password: Aktuelles Passwort
+        are_you_sure: Bist du sicher?
+        cancel_my_account: Mein Konto kündigen
+        leave_blank_if_you_don_t_want_to_change_it: Lassen Sie das Feld leer, wenn Sie keine Änderungen vornehmen möchten
+        unhappy: Unhappy
+        update: Aktualisieren
+        back: Zurück
+      new:
+        title: Registrieren
+        enter_email: E-Mail
+        enter_password: Passwort
+        confirm_password: Passwort bestätigen
+        sign_up: Registrieren
+    sessions:
+      new:
+        title: Einloggen
+        enter_email: E-Mail Adresse eingeben
+        enter_password: Geben Sie Ihr Passwort ein
+        remember_me: Angemeldet bleiben
+        sign_in: Einloggen
+    shared:
+      links:
+        back: Zurück
+        didn_t_receive_confirmation_instructions: Keine Anleitung zur Bestätigung erhalten?
+        didn_t_receive_unlock_instructions: Keine Anleitung zum Entsperren erhalten?
+        forgot_your_password: Passwort vergessen?
+        sign_in: Bereits registriert?
+        sign_in_link: Einloggen
+        sign_in_with_provider: Mit %{provider} anmelden
+        sign_up: Sie haben kein Konto?
+        sign_up_link: Registrieren
+        confirmation: Die Passwörter stimmen nicht überein # ???
+    unlocks:
+      new:
+        title: Senden Sie erneut Anweisungen zur Entsperrung
+        enter_email: E-Mail
+        resend_unlock_instructions: Senden Sie erneut Anweisungen zur Entsperrung

@@ -1,8 +1,16 @@
 de:
   layouts:
-      navbar:
-        home: "Startseite"
-        about: "Über uns"
+    navbar:
+      home: Startseite
+      about: Über uns
+    # buttons:
+      sign_up: Registrieren
+      sign_in: Anmelden
 
-      language_switcher:
-        languages: "Sprache"
+      sign_out: Ausloggen
+      edit_account: Konto bearbeiten
+
+    language_switcher:
+      languages: Sprache
+
+

@@ -25,15 +25,13 @@ ru:
         current_password: Введите текущий пароль
         are_you_sure: Вы уверены?
         cancel_my_account: Удалить аккаунт
-        # currently_waiting_confirmation_for_email: Ожидается подтверждение от %{email}.
         leave_blank_if_you_don_t_want_to_change_it: оставьте пустым, если вы не хотите его менять
         unhappy: Недовольны?
         update: Обновить
-        we_need_your_current_password_to_confirm_your_changes: Введите текущий пароль для подтверждения изменений
         back: Назад
       new:
         title: Зарегистрироваться
-        enter_email: Введите адрес электронной почты
+        enter_email: Введите email адрес
         enter_password: Введите пароль
         confirm_password: Подтвердить свой пароль
         sign_up: Зарегистрироваться
@@ -55,10 +53,9 @@ ru:
         sign_in_with_provider: Войти с помощью %{provider}?
         sign_up: Нет акаунта?
         sign_up_link: Зарегистрироваться
-        confirmation: Пароли не совпадают
+        confirmation: Пароли не совпадают # ???
     unlocks:
       new:
         title: Повторная отправка инструкций по разблокировке
         enter_email: Введите электронный адрес
         resend_unlock_instructions: Отправить инструкцию повтороно
-
