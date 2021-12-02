@@ -1,16 +1,16 @@
-<main class="form-devise text-center">
+<div class="form-devise text-center">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal"><%= t('.title') %></h1>
 
     <div class="form-floating">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control first", placeholder: "Enter Email" %>
-      <%= f.label :email, "Enter Email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control first", placeholder: t('.enter_email') %>
+      <%= f.label :email, t('.enter_email') %>
     </div>
 
     <div class="form-floating">
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control last", placeholder: "Password" %>
-      <%= f.label :password, "Password" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control last", placeholder: t('.enter_password') %>
+      <%= f.label :password, t('.enter_password') %>
     </div>
 
       <% if devise_mapping.rememberable? %>
@@ -18,17 +18,19 @@
           <div class="form-check">
             <label>
               <%= f.check_box :remember_me, class: "form-check-input" %>
-              <%= f.label :remember_me %>
+              <%= f.label :remember_me, t('.remember_me') %>
           </label>
           </div>
         </div>
       <% end %>
-
-    <%= f.submit "Sign in", class: "w-100 btn btn-lg btn-primary" %>
+    <div class="actions">
+      <%= f.submit t('.sign_in'), class: "w-100 btn btn-lg btn-primary" %>
+    </div>
+    <br/>
 
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <%= render "users/shared/links" %>
 
   <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
-</main>
+</div>

@@ -1,16 +1,16 @@
 <%= render "users/shared/error_messages", resource: resource %>
 
 <div class="form-devise text-center">
-  <h1 class="h3 mb-3 fw-normal">Resend confirmation instructions</h1>
+  <h1 class="h3 mb-3 fw-normal"><%= t('.title') %></h1>
 
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <div class="form-floating">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control", placeholder: "example@mail.com" %>
-      <%= f.label :email, "Enter email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control", placeholder: t('.enter_email') %>
+      <%= f.label :email, t('.enter_email') %>
     </div>
     <br/>
     <div class="actions">
-      <%= f.submit "Resend confirmation instructions", class: "btn btn-primary" %>
+      <%= f.submit t('.resend_confirmation_instructions'), class: "btn btn-primary" %>
     </div>
   <% end %>
 
