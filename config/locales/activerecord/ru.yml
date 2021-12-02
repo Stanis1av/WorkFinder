@@ -2,33 +2,33 @@ ru:
   activerecord:
     attributes:
       user:
-        confirmation_sent_at: Подтверждение отправлено
+        confirmation_sent_at: Дата отправки подтверждения
         confirmation_token: Токен подтверждения
-        confirmed_at: Подтверждено в
-        created_at: Создан в
+        confirmed_at: Дата подтверждения
+        created_at: Дата создания
         current_password: Текущий пароль
-        current_sign_in_at: Текущий пользователь зашёл в
-        current_sign_in_ip: IP текущего входа в систему
-        email: Электронная почта
+        current_sign_in_at: Дата текущего входа
+        current_sign_in_ip: IP текущего входа
+        email: Email
         encrypted_password: Зашифрованный пароль
         failed_attempts: Неудачные попытки
-        last_sign_in_at: Последний вход в систему в
-        last_sign_in_ip: IP-адрес последнего входа в систему
-        locked_at: Заблокирован в
+        last_sign_in_at: Дата последнего входа
+        last_sign_in_ip: IP последнего входа
+        locked_at: Дата блокировки
         password: Пароль
-        password_confirmation: Подтвержденый пароль
-        remember_created_at:  в системе зарегистрировался
+        password_confirmation: Подтверждение пароля
+        remember_created_at: Дата создания запоминания
         remember_me: Запомнить меня
-        reset_password_sent_at: электронное письмо для сброса пароля, отправленно по адресу
+        reset_password_sent_at: Дата отправки сброса пароля
         reset_password_token: Токен сброса пароля
-        sign_in_count: Количество регистраций
-        unconfirmed_email: Неподтвержденный адрес электронной почты
+        sign_in_count: Количество входов
+        unconfirmed_email: Неподтвержденный email
         unlock_token: Токен разблокировки
-        updated_at: Обновлён в
-        terms_accepted_at: Условия
-        privacy_accepted_at: Защита данных
+        updated_at: Дата обновления
     models:
-      user: Пользователь
+      user:
+        user: Пользователь
+        other: Пользователи
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
