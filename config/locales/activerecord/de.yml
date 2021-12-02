@@ -26,10 +26,10 @@ de:
         unconfirmed_email: Unbestätigte E-Mail-Adresse
         unlock_token: Entsperrungs-Token
         updated_at: Aktualisiert am
-    models:
-      user:
-        one: Benutzer
-        other: Benutzer
+    # models:
+    #   user:
+    #     one: Benutzer
+    #     other: Benutzer
     errors:
       messages:
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'

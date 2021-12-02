@@ -25,10 +25,10 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
-    models:
-      user:
-        one: User
-        other: Users
+    # models:
+    #   user:
+    #     one: User
+    #     other: Users
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'

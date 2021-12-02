@@ -25,10 +25,10 @@ ru:
         unconfirmed_email: Неподтвержденный email
         unlock_token: Токен разблокировки
         updated_at: Дата обновления
-    models:
-      user:
-        user: Пользователь
-        other: Пользователи
+    # models:
+    #   user:
+    #     user: Пользователь
+    #     other: Пользователи
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
