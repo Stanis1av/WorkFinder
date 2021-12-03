@@ -6,19 +6,19 @@
       </a>
       <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdownMenuLink">
         <li class="">
-            <%= link_to("http://en.localhost:3000#{request.env['PATH_INFO']}", class: "dropdown-item") do %>
+            <%= link_to({ locale: 'en' }, class: "dropdown-item") do %>
                 <%#= embedded_svg("us", class: "svg-flags") %> <!-- connect icon flag -->
                 <span>English</span>
             <% end %>
         </li>
         <li>
-            <%= link_to("http://ru.localhost:3000#{request.env['PATH_INFO']}", class: "dropdown-item") do %>
+            <%= link_to({ locale: 'ru' }, class: "dropdown-item") do %>
                 <%#= embedded_svg("ru", class: "svg-flags") %>
                 <span>Русский</span>
             <% end %>
         </li>
         <li>
-            <%= link_to("http://de.localhost:3000#{request.env['PATH_INFO']}", class: "dropdown-item") do %>
+            <%= link_to({ locale: 'de' }, class: "dropdown-item") do %>
                 <%#= embedded_svg("de", class: "svg-flags") %>
                 <span>Deutsche</span>
             <% end %>
