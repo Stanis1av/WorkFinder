@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "homepage#index"
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-  resource :about, only: :show
+    devise_for :users
+    root to: "homepage#index"
+
+    resource :about, only: :show
+
+  end
 end
