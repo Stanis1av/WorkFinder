@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     devise_for :users
     root to: "homepage#index"
 
+    resource :job_seeker, path: 'jobseeker_profile', only: [:edit, :update, :show]
+    resource :company, path: 'company_profile', only: [:edit, :update, :show]
+
     resource :about, only: :show
 
   end

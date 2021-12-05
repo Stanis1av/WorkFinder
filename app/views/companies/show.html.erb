@@ -1,0 +1,10 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <p><%= @company.name %></p>
+        <p><%= @company.about %></p>
+        <p><%= @company.website %></p>
+        <p><%= @company.email %></p>
+
+        <%= link_to "Edit Details", edit_company_path, class: "btn btn-primary" %>
+    </div>
+</div>
