@@ -23,9 +23,9 @@ class CompaniesController < ApplicationController
   def update
     if @company.valid?
       @company.update(company_params)
-      redirect_to company_path, notice: 'Локация успешно обновлена'
+      redirect_to company_path, notice: 'Профиль успешно обновлён'
     else
-      render action: 'edit', alert: 'Не удалось обновить локацию'
+      render action: 'edit', alert: 'Не удалось обновить профиль'
     end
   end
 

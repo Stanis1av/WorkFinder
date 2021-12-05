@@ -1,21 +1,25 @@
-<%= form_with model: @company, local: true, url: company_path, method: :put do |f| %>
+<div class="card mb-3">
+    <div class="card-body">
+        <%= form_with model: @company, local: true, url: company_path, method: :put do |f| %>
 
-<div class="mb-3">
-    <%= f.label :name, "Company name", class: "form-label" %>
-    <%= f.text_field :name, class: "form-control" %>
-</div>
-<div class="mb-3">
-    <%= f.label :about, "About company", class: "form-label" %>
-    <%= f.text_field :about, class: "form-control" %>
-</div>
-<div class="mb-3">
-    <%= f.label :website, "Website company", class: "form-label" %>
-    <%= f.text_field :website, class: "form-control" %>
-</div>
-<div class="mb-3">
-    <%= f.label :email, "Email", class: "form-label" %>
-    <%= f.email_field :email, class: "form-control" %>
-</div>
+        <div class="mb-3">
+            <%= f.label :name, "Company name", class: "form-label" %>
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :about, "About company", class: "form-label" %>
+            <%= f.text_field :about, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :website, "Website company", class: "form-label" %>
+            <%= f.text_field :website, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :email, "Email", class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+        </div>
 
-    <%= f.submit "Eneter", class: "btn btn-primary" %>
-<% end %>
+            <%= f.submit "Eneter", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

@@ -19,15 +19,19 @@
     <%= f.label :password_confirmation, t('.confirm_password') %>
   </div>
 
-  <div class="form-check">
-    <%= f.label :role, "JobSeeker", class: "form-check-label"  %>
-    <%= f.radio_button :role, 'jobseeker', class: "form-check-input" %>
+  <div class="input-group radio-button-role">
+    <div class="input-group-text">
+      <%= f.radio_button :role, 'jobseeker', class: "form-check-input mt-0" %>
+    </div>
+  <%= f.label :role, "JobSeeker", class: "form-control text-start" %>
   </div>
-  <div class="form-check">
-    <%= f.label :role, "Company", class: "form-check-label" %>
-    <%= f.radio_button :role, 'company', class: "form-check-input" %>
+  <div class="input-group radio-button-role">
+    <div class="input-group-text">
+      <%= f.radio_button :role, 'company', class: "form-check-input mt-0" %>
+    </div>
+  <%= f.label :role, "Company", class: "form-control text-start" %>
   </div>
-
+  <br/>
   <div class="actions">
     <%= f.submit t('.sign_up'), class: "w-100 btn btn-lg btn-primary" %>
   </div>

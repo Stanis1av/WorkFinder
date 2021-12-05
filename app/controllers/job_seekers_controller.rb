@@ -23,9 +23,9 @@ class JobSeekersController < ApplicationController
   def update
     if @job_seeker.valid?
       @job_seeker.update(job_seeker_params)
-      redirect_to job_seeker_path, notice: 'Локация успешно обновлена'
+      redirect_to job_seeker_path, notice: 'Профиль успешно обновлён'
     else
-      render action: 'edit', alert: 'Не удалось обновить локацию'
+      render action: 'edit', alert: 'Не удалось обновить профиль'
     end
   end
 

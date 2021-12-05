@@ -1,9 +1,9 @@
 <div class="card mb-3">
     <div class="card-body">
-        <p><%= @job_seeker.first_name %></p>
-        <p><%= @job_seeker.last_name %></p>
-        <p><%= @job_seeker.email %></p>
-        <p><%= @job_seeker.phone_number %></p>
+        <p>First name: <%= @job_seeker.first_name %></p>
+        <p>Last name: <%= @job_seeker.last_name %></p>
+        <p>Email: <%= @job_seeker.email %></p>
+        <p>Phone number: <%= @job_seeker.phone_number %></p>
 
         <%= link_to "Edit Details", edit_job_seeker_path, class: "btn btn-primary" %>
     </div>
