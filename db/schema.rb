@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_194227) do
+ActiveRecord::Schema.define(version: 2021_12_09_130119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 2021_12_05_194227) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "educations", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "job_seeker_skills", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_job_seeker_skills_on_resume_id"
+    t.index ["skill_id"], name: "index_job_seeker_skills_on_skill_id"
+  end
+
   create_table "job_seekers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -35,6 +49,25 @@ ActiveRecord::Schema.define(version: 2021_12_05_194227) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_job_seekers_on_user_id"
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "country"
+    t.string "street_address"
+    t.string "city_or_state"
+    t.bigint "job_seeker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_seeker_id"], name: "index_resumes_on_job_seeker_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,6 +88,14 @@ ActiveRecord::Schema.define(version: 2021_12_05_194227) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vacancies", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "companies", "users"
+  add_foreign_key "job_seeker_skills", "resumes"
+  add_foreign_key "job_seeker_skills", "skills"
   add_foreign_key "job_seekers", "users"
+  add_foreign_key "resumes", "job_seekers"
 end
