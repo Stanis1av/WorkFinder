@@ -1,0 +1,23 @@
+<article class="card mb-3 resume resume-<%= resume.id %>">
+    <div class="card-header">
+        <small class="d-inline-block mb-3 text-secondary border-bottom"><%= t('.posted')%>: <%= time_ago_in_words(resume.created_at) %> <%= t('.ago')%>.</small>
+        <h3 class="mb-0"><%= "#{resume.first_name} #{resume.last_name}" %></h3>
+    </div>
+    <div class="card-body">
+        <p><%= t('.first_name')%>: <%= resume.first_name %></p>
+        <p><%= t('.last_name')%>: <%= resume.last_name %></p>
+        <p><%= t('.phone_number')%>: <%= resume.phone_number %></p>
+        <p><%= t('.country')%>: <%= resume.country %></p>
+        <p><%= t('.street_address')%>: <%= resume.street_address %></p>
+        <p><%= t('.city_or_state')%>: <%= resume.city_or_state %></p>
+        <hr/>
+        <p>
+          <%= t('.skills')%>:
+          <% resume.skills.each do |skill| %>
+            <%= link_to skill.name, skill_path(id: skill.id) %>
+            <!-- ??? _path(id: skill.id) -->
+          <% end %>
+        </p>
+        <%= link_to t('.read_more'), resume_path(id: resume.id), class: "btn btn-sm btn-outline-primary" %>
+    </div>
+</article>

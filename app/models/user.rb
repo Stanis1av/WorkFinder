@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   after_save :create_a_profile_based_on_the_role
 
-  has_one :job_seeker
-  has_one :company
+  has_one :job_seeker, dependent: :destroy
+  has_one :company, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable

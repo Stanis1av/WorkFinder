@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-lg-1 col-md-1 ml-auto mr-auto">
+
+    </div>
+    <div class="col-lg-7 col-md-6 ml-auto mr-auto">
+        <div class="card mb-5">
+            <div class="card-header">
+                <h1 class="mb-0"><%= t('.resumes') %></h1>
+            </div>
+            <div class="card-body">
+                <%= link_to t('.add_new_resume'), new_resume_path, class: "btn btn-primary btn-large" %>
+            </div>
+        </div>
+        <section id="resumes">
+            <%= render @resumes %>
+        </section>
+            </div>
+
+    <div class="col-lg-4 col-md-4 ml-auto mr-auto">
+    </div>
+</div>
