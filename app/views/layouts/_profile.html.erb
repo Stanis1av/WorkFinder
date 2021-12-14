@@ -1,0 +1,21 @@
+<ul class="navbar-nav">
+  <% if user_signed_in? %>
+  <li class="nav-item">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= embedded_svg("profile-logo", class: "svg-profile") %>
+    <span><%= t ('.profile') %></span>
+</a>
+
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <%= link_to t('.show_profile'), job_seeker_path, class: "dropdown-item" %>
+      <%= link_to t('.edit_profile'), edit_job_seeker_path, class: "dropdown-item" %>
+      <%= link_to t('.edit_account'), edit_user_registration_path, class: "dropdown-item" %>
+      <hr/>
+      <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    </div>
+  </li>
+  <% else %>
+    <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-outline-success" %>
+    <%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-outline-success" %>
+  <% end %>
+</ul>

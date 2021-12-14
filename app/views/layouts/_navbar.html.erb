@@ -6,19 +6,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <div class="navbar-nav">
+        <%= link_to t('.resumes'), resumes_path, class: "nav-link" %>
+      </div>
+      <div class="navbar-nav">
         <%= link_to t('.about'), about_path, class: "nav-link" %>
       </div>
       <div class="ms-auto p-2 bd-highlight"> <!-- Positioning the navigation bar item in the far right corner -->
-        <% if user_signed_in? %>
-
-          <%= link_to t('.edit_account'), edit_user_registration_path, class: "btn btn-outline-warning" %>
-          <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
-
-        <% else %>
-          <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-outline-success" %>
-          <%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-outline-success" %>
-
-        <% end %>
+        <%= render 'layouts/profile' %>
       </div>
       <div class="text-start">
         <%= render 'layouts/language_switcher' %>

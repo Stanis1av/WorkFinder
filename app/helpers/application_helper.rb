@@ -1,6 +1,6 @@
 module ApplicationHelper
   def embedded_svg(icon_name, options={})
-    file = File.read(Rails.root.join('app', 'assets', 'images', 'flags', "#{icon_name}.svg"))
+    file = File.read(Rails.root.join('app', 'assets', 'images', 'navbar', "#{icon_name}.svg"))
     doc = Nokogiri::HTML::DocumentFragment.parse file
     svg = doc.at_css 'svg'
 
