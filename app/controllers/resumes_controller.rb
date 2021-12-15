@@ -18,22 +18,24 @@ class ResumesController < ApplicationController
     @resume.job_seeker_id = current_user.job_seeker.id
 
     if @resume.valid?
-      logger.debug "#{'=' * 70}"
-      logger.debug "@resume.save #{@resume.save}"
-      logger.debug "#{'=' * 70}"
-      logger.debug "@resume \n#{@resume}"
-      logger.debug "#{'=' * 70}"
       @resume.save
       redirect_to resume_path(id: @resume.id), notice: "Резюмe успешно создано"
     else
-      logger.debug "#{'=' * 70}"
-      logger.debug "@resume.save #{@resume.save}"
-      logger.debug "#{'=' * 70}"
-      logger.debug "@resume \n#{@resume}"
-      logger.debug "#{'=' * 70}"
-      logger.debug "#{}"
-      logger.debug "#{'=' * 70}"
       render action: "new", alert: "Создание резюме не удалось"
+    end
+  end
+
+  def edit
+    if !is_the_owner
+      render @resume
+    end
+  end
+
+  def update
+    if @resume.update(resume_params)
+      redirect_to resume_path(id: @resume.id), notice: "Резюмe успешно обновлено"
+    else
+      render action: "index", alert: "Обновление не удалось"
     end
   end
 
@@ -41,6 +43,10 @@ class ResumesController < ApplicationController
 
   def set_resume
     @resume = Resume.find(params[:id])
+  end
+
+  def is_the_owner
+    current_user.job_seeker.id == Resume.find(params[:id]).job_seeker_id
   end
 
   def resume_params

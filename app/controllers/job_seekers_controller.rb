@@ -1,6 +1,6 @@
 class JobSeekersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_job_seeker, only: [:edit, :update, :show]
-  # before_action :authenticate_user!
 
   def show
     if current_user.job_seeker != nil
