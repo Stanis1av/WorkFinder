@@ -1,0 +1,47 @@
+ru:
+  resumes:
+    index:
+      resumes: Резюме
+      add_new_resume: Добавить новое резюме
+    new:
+      new_resume: Создать новое резюме
+      edit_resume: Изменить резюме
+      first_name: Имя
+      last_name: Фамилия
+      phone_number: Номер телефона
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
+      skills: Навыки
+      create: Создать резюме
+    resume:
+      posted: Размещено
+      ago: назад
+      first_name: Имя
+      last_name: Фамилия
+      phone_number: Номер телефона
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
+      skills: Навыки
+      read_more: Узнать больше
+    edit:
+      edit_resume: Изменить резюме
+      first_name: Имя
+      last_name: Фамилия
+      phone_number: Номер телефона
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
+      skills: Навыки
+      edit: Редактировать резюме
+    show:
+      your_resume: Ваше резюме
+      first_name: Имя
+      last_name: Фамилия
+      phone_number: Номер телефона
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
+      skills: Навыки
+      edit_resume: Редактировать резюме

@@ -2,14 +2,20 @@ ru:
   layouts:
     navbar:
       home: Главная
+      resumes: Резюме
       about: О Нас
-    # buttons:
       sign_up: Зарегистрироваться
       sign_in: Войти
 
-      sign_out: Выйти
-      edit_account: Редактировать аккаунт
-
     language_switcher:
       languages: Язык
+
+    profile:
+      profile: Профиль
+      show_profile: Мой профиль
+      edit_profile: Редактировать профиль
+      edit_account: Редактировать аккаунт
+      sign_out: Выйти
+
+
 

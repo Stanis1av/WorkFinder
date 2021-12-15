@@ -2,15 +2,19 @@ de:
   layouts:
     navbar:
       home: Startseite
+      resumes: Resumes
       about: Über uns
-    # buttons:
       sign_up: Registrieren
       sign_in: Anmelden
 
-      sign_out: Ausloggen
-      edit_account: Konto bearbeiten
-
     language_switcher:
       languages: Sprache
+
+    profile:
+      profile: Profile
+      show_profile: My profile
+      edit_profile: Edit profile
+      edit_account: Konto bearbeiten
+      sign_out: Ausloggen
 
 
