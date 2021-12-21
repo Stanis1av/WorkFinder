@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_130119) do
+ActiveRecord::Schema.define(version: 2021_12_21_030248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,6 @@ ActiveRecord::Schema.define(version: 2021_12_09_130119) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "job_seeker_skills", force: :cascade do |t|
-    t.bigint "skill_id", null: false
-    t.bigint "resume_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["resume_id"], name: "index_job_seeker_skills_on_resume_id"
-    t.index ["skill_id"], name: "index_job_seeker_skills_on_skill_id"
-  end
-
   create_table "job_seekers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -49,6 +40,15 @@ ActiveRecord::Schema.define(version: 2021_12_09_130119) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_job_seekers_on_user_id"
+  end
+
+  create_table "resume_skills", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_resume_skills_on_resume_id"
+    t.index ["skill_id"], name: "index_resume_skills_on_skill_id"
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -89,13 +89,35 @@ ActiveRecord::Schema.define(version: 2021_12_09_130119) do
   end
 
   create_table "vacancies", force: :cascade do |t|
+    t.string "job_title"
+    t.string "company_name"
+    t.string "country"
+    t.string "location"
+    t.string "remote"
+    t.string "type_of_job"
+    t.string "salary"
+    t.string "description"
+    t.bigint "company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_vacancies_on_company_id"
+  end
+
+  create_table "vacancy_skills", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "vacancy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_vacancy_skills_on_skill_id"
+    t.index ["vacancy_id"], name: "index_vacancy_skills_on_vacancy_id"
   end
 
   add_foreign_key "companies", "users"
-  add_foreign_key "job_seeker_skills", "resumes"
-  add_foreign_key "job_seeker_skills", "skills"
   add_foreign_key "job_seekers", "users"
+  add_foreign_key "resume_skills", "resumes"
+  add_foreign_key "resume_skills", "skills"
   add_foreign_key "resumes", "job_seekers"
+  add_foreign_key "vacancies", "companies"
+  add_foreign_key "vacancy_skills", "skills"
+  add_foreign_key "vacancy_skills", "vacancies"
 end
