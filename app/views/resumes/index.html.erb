@@ -7,9 +7,11 @@
             <div class="card-header">
                 <h1 class="mb-0"><%= t('.resumes') %></h1>
             </div>
+            <% if is_job_seeker? %>
             <div class="card-body">
                 <%= link_to t('.add_new_resume'), new_resume_path, class: "btn btn-primary btn-large" %>
             </div>
+            <% end %>
         </div>
         <section id="resumes">
             <%= render @resumes %>
