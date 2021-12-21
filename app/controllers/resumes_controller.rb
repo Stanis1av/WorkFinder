@@ -1,5 +1,6 @@
 class ResumesController < ApplicationController
-  # before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: :index
+  before_action :is_not_jobseeker?, except: :index
   before_action :set_resume, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -47,6 +48,12 @@ class ResumesController < ApplicationController
 
   def is_the_owner
     current_user.job_seeker.id == Resume.find(params[:id]).job_seeker_id
+  end
+
+  def is_not_jobseeker?
+    if current_user.role != 'jobseeker'
+      redirect_to root_path, alert: "Вы не соискатель, доступ запрещен"
+    end
   end
 
   def resume_params
