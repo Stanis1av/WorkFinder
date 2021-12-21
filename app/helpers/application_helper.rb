@@ -8,4 +8,11 @@ module ApplicationHelper
 
     doc.to_html.html_safe
   end
+
+  def is_job_seeker?
+    current_user.role == 'jobseeker'
+  end
+  def is_company?
+    current_user.role == 'company'
+  end
 end
