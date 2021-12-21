@@ -1,10 +1,15 @@
 <div class="card mb-3">
     <div class="card-body">
-        <p>Name company: <%= @company.name %></p>
-        <p>About company: <%= @company.about %></p>
-        <p>Website: <%= @company.website %></p>
-        <p>Email: <%= @company.email %></p>
+        <%= link_to t('.add_new_vacancy'), new_vacancy_path, class: "btn btn-primary btn-large" %>
+    </div>
+</div>
+<div class="card mb-3">
+    <div class="card-body">
+        <p><%= t('.name') %>: <%= @company.name %></p>
+        <p><%= t('.about_company') %>: <%= @company.about_company %></p>
+        <p><%= t('.website') %>: <%= @company.website %></p>
+        <p><%= t('.email') %>: <%= @company.email %></p>
 
-        <%= link_to "Edit Details", edit_company_path, class: "btn btn-primary" %>
+        <%= link_to t('.edit_details'), edit_company_path, class: "btn btn-primary" %>
     </div>
 </div>

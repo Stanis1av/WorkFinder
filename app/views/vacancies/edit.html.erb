@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-8 mb-3">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="mb-0"><%= t('.edit_vacancy') %></h1>
+            </div>
+            <div class="card-body">
+                <%#= form_with model: @vacancy, local: true do |f| %>
+                <%#= form_with model: @vacancy, local: true, url: vacancy_path(@vacancy), method: :put do |form|  do |f| %>
+                <%= form_with model: @vacancy, local: true, url: vacancy_path, method: :put do |f| %>
+
+                <%#= render "shared/validation-messages", object: f.object %>
+                <div class="form-group">
+                    <%= f.label :company_name, t('.company_name') %>
+                    <%= f.text_field :company_name, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :job_title, t('.job_title') %>
+                    <%= f.text_field :job_title, class: "form-control" %>
+                </div>
+                <!-- Location -->
+                <div class="form-group">
+                    <%= f.label :country, t('.country') %>
+                    <%= f.text_field :country, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :location, t('.location') %>
+                    <%= f.text_field :location, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :remote, t('.remote') %>
+                    <%= f.text_field :remote?, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :type_of_job, t('.type_of_job') %>
+                    <%= f.text_field :type_of_job, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :salary, t('.salary') %>
+                    <%= f.text_field :salary, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :description, t('.description') %>
+                    <%= f.text_area :description, class: "form-control" %>
+                </div>
+                <!-- Skills -->
+                <div class="form-group">
+                  <%= f.label :skill_list, t('.skills') %><br />
+                  <%= f.text_field :skill_list, class: "form-control", value: vacancy_skill_list %>
+                </div>
+                <br/>
+                <div class="btn-group">
+                    <%= f.submit t('.edit'), class: "btn btn-success" %>
+                </div>
+                <% end %>
+        </div>
+    </div>
+<div>
