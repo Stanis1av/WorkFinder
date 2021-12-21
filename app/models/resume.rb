@@ -1,8 +1,8 @@
 class Resume < ApplicationRecord
   belongs_to :job_seeker
 
-  has_many :job_seeker_skills, dependent: :destroy
-  has_many :skills, through: :job_seeker_skills
+  has_many :resume_skills, dependent: :destroy
+  has_many :skills, through: :resume_skills
 
   default_scope { order(created_at: :desc) }
 
