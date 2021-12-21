@@ -2,6 +2,7 @@ ru:
   skills:
     show:
       resumes_with_these_skill: Другие резюме с тэгом
+      vacancies_with_these_skill: Другие вакансии с тэгом
 
       posted: Размещено
       ago: назад

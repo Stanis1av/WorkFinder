@@ -3,6 +3,7 @@ en:
     navbar:
       home: Home
       resumes: Resumes
+      vacancies: Vacancies
       about: About
       sign_up: Sign up
       sign_in: Sign in

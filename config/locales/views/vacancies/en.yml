@@ -1,0 +1,54 @@
+en:
+  vacancies:
+    index:
+      vacancies: vacancies
+      add_new_vacancy: Add a new vacancy
+    new:
+      new_vacancy: Create a new vacancy
+      job_title: Job title
+      company_name: Company name
+      country: Country
+      location: Location
+      remote: Remote
+      type_of_job: Type of job
+      salary: Salary
+      description: Description
+      skills: Skills
+      create: Create vacancy
+    vacancy:
+      posted: Posted
+      ago: ago
+      job_title: Job title
+      company_name: Company name
+      country: Country
+      location: Location
+      remote: Remote
+      type_of_job: Type of job
+      salary: Salary
+      description: Description
+      skills: Skills
+      read_more: Read more
+    edit:
+      edit_vacancy: Edit vacancy
+      job_title: Job title
+      company_name: Company name
+      country: Country
+      location: Location
+      remote: Remote
+      type_of_job: Type of job
+      salary: Salary
+      description: Description
+      skills: Skills
+      edit: Edit vacancy
+    show:
+      your_vacancy: Your vacancy
+      job_title: Job title
+      company_name: Company name
+      country: Country
+      location: Location
+      remote: Remote
+      type_of_job: Type of job
+      salary: Salary
+      description: Description
+      skills: Skills
+      edit_vacancy: Edit vacancy

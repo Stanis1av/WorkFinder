@@ -2,6 +2,7 @@ de:
   skills:
     show:
       resumes_with_these_skill: Resumes with these skill
+      vacancies_with_these_skill: Vacancies with these skill
 
       posted: Posted
       ago: ago

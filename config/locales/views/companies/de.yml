@@ -1,0 +1,18 @@
+de:
+  companies:
+    show:
+      add_new_vacancy: Add a new vacancy
+      name: Company name
+      about_company: About company
+      website: Your website
+      email: Email
+
+      edit_details: Edit details
+
+    edit:
+      name: Company name
+      about_company: About company
+      website: Your website
+      email: Email
+
+      enter: Enter
