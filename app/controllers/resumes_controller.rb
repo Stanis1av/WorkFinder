@@ -7,7 +7,9 @@ class ResumesController < ApplicationController
   end
 
   def index
-    @resumes = Resume.all
+    # @resumes = Resume.all
+    @resumes = resumes
+    @query = query
   end
 
   def new
@@ -54,6 +56,19 @@ class ResumesController < ApplicationController
     if current_user.role != 'jobseeker'
       redirect_to root_path, alert: "Вы не соискатель, доступ запрещен"
     end
+  end
+
+  def resumes
+    if query
+      # Resume.where(" job_title ILIKE ?", "%#{query}%")
+      Resume.joins(:skills).where("name ILIKE ?", "%#{query}%")
+    else
+      Resume.all
+    end
+  end
+
+  def query
+    params[:query]
   end
 
   def resume_params

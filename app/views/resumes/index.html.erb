@@ -13,6 +13,29 @@
             </div>
             <% end %>
         </div>
+        <%= form_with(
+          url: resumes_path,
+          method: :get,
+          data: {
+            controller: "submit-form",
+            submit_form_target: "form",
+            turbo_frame: :index
+          }
+        ) do |f| %>
+          <%= f.text_field(
+            :query,
+            autofocus: true,
+            autocomplete: "off",
+            value: @query,
+            placeholder: "Search",
+            class: "form-control me-2",
+            type: "search",
+            data: {
+              action: "input->submit-form#submit"
+            }
+          ) %>
+        <% end %>
+            <br/>
         <section id="resumes">
             <%= render @resumes %>
         </section>
@@ -21,3 +44,20 @@
     <div class="col-lg-4 col-md-4 ml-auto mr-auto">
     </div>
 </div>
+
+<script type="text/javascript">
+    function addEvent(elem, event, fn){
+      if(elem.addEventListener){
+        elem.addEventListener(event, fn, false);
+      }else{
+        elem.attachEvent("on" + event,
+        function(){ return(fn.call(elem, window.event)); });
+    }}
+
+    var element = document.getElementById('query');
+
+    addEvent(element,'focus',function(){
+      var that = this;
+      setTimeout(function(){ that.selectionStart = that.selectionEnd = 10000; }, 0);
+    });
+</script>
