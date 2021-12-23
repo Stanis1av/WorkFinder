@@ -7,7 +7,9 @@ class VacanciesController < ApplicationController
   end
 
   def index
-    @vacancies = Vacancy.all
+    # @vacancies = Vacancy.all
+    @vacancies = vacancies
+    @query = query
   end
 
   def new
@@ -54,6 +56,18 @@ class VacanciesController < ApplicationController
     if current_user.role != 'company'
       redirect_to root_path, alert: "Вы не компания, доступ запрещен"
     end
+  end
+
+  def vacancies
+    if query
+      Vacancy.where("job_title ILIKE ?", "%#{query}%")
+    else
+      Vacancy.all
+    end
+  end
+
+  def query
+    params[:query]
   end
 
   def vacancy_params
