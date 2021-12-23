@@ -36,6 +36,7 @@ gem 'sib-api-v3-sdk' # Sendinblue API
 gem 'addressable', '~> 2.7.0' # 'sib-api-v3-sdk' requires the "addressable" dependency to work
 gem 'roadie', '~> 4.0' # Comfortable CSS integration with mails
 
+gem 'turbo-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
