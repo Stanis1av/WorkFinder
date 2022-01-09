@@ -10,6 +10,6 @@
         <p><%= t('.website') %>: <%= @company.website %></p>
         <p><%= t('.email') %>: <%= @company.email %></p>
 
-        <%= link_to t('.edit_details'), edit_company_path, class: "btn btn-primary" %>
+        <%= link_to t('.edit_details'), edit_company_path, class: "btn btn-primary", data: {turbo: "false"} %>
     </div>
 </div>

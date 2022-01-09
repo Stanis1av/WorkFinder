@@ -11,7 +11,7 @@
     </div>
     <br/>
     <div class="actions">
-      <%= f.submit t('.send_confirmation_instructions'), class: "w-100 btn btn-primary" %>
+      <%= f.submit t('.send_confirmation_instructions'), class: "w-100 btn btn-primary", data: {turbo: "false"} %>
     </div>
     <br/>
   <% end %>

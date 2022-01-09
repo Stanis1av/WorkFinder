@@ -19,7 +19,7 @@
             <%= f.email_field :email, class: "form-control" %>
         </div>
 
-            <%= f.submit t('.enter'), class: "btn btn-primary" %>
+            <%= f.submit t('.enter'), class: "btn btn-primary", data: {turbo: "false"} %>
         <% end %>
     </div>
 </div>
