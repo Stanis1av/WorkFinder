@@ -1,0 +1,98 @@
+de:
+  devise:
+    confirmations:
+      new:
+        title: Erneut Anweisungen zur Bestätigung zusenden
+        enter_email: E-Mail
+        resend_confirmation_instructions: Erneut Anweisungen zusenden
+    passwords:
+      edit:
+        title: Mein Passwort ändern
+        enter_new_password: Neues Passwort
+        confirm_new_password: Neues Passwort bestätigen
+        change_my_password: Mein Passwort ändern
+      new:
+        title: Passwort vergessen?
+        enter_your_email: E-Mail
+        send_confirmation_instructions: Anweisungen zusenden
+    registrations:
+      edit:
+        title: Bearbeiten
+        current_email: E-mail
+        enter_new_password: Neues Passwort
+        confirm_new_password: Neues Passwort bestätigen
+        characters_min: Zeichen mindestens
+        current_password: Aktuelles Passwort
+        are_you_sure: Bist du sicher?
+        cancel_my_account: Mein Konto kündigen
+        leave_blank_if_you_don_t_want_to_change_it: Lassen Sie das Feld leer, wenn Sie keine Änderungen vornehmen möchten
+        unhappy: Unhappy
+        update: Aktualisieren
+        back: Zurück
+      new:
+        title: Registrieren
+        enter_email: E-Mail
+        enter_password: Passwort
+        confirm_password: Passwort bestätigen
+        sign_up: Registrieren
+    sessions:
+      new:
+        title: Einloggen
+        enter_email: E-Mail Adresse eingeben
+        enter_password: Geben Sie Ihr Passwort ein
+        remember_me: Angemeldet bleiben
+        sign_in: Einloggen
+    shared:
+      links:
+        back: Zurück
+        didn_t_receive_confirmation_instructions: Keine Anleitung zur Bestätigung erhalten?
+        didn_t_receive_unlock_instructions: Keine Anleitung zum Entsperren erhalten?
+        forgot_your_password: Passwort vergessen?
+        sign_in: Bereits registriert?
+        sign_in_link: Einloggen
+        sign_in_with_provider: Mit %{provider} anmelden
+        sign_up: Sie haben kein Konto?
+        sign_up_link: Registrieren
+        confirmation: Die Passwörter stimmen nicht überein # ???
+    unlocks:
+      new:
+        title: Senden Sie erneut Anweisungen zur Entsperrung
+        enter_email: E-Mail
+        resend_unlock_instructions: Senden Sie erneut Anweisungen zur Entsperrung
+    mailer:
+      confirmation_instructions:
+        subject: Bestätige dein Konto
+        title: Bestätigen Sie Ihre E-Mail-Adresse auf FindWorker.
+        welcome: Willkommen
+        gratitude: Vielen Dank, dass Sie FindWorker beigetreten sind.
+        info_text: "Wir möchten Ihre E-Mail-Adresse verifizieren. Um Ihre E-Mail-Adresse zu bestätigen und Ihre Registrierung abzuschließen, klicken Sie auf die Schaltfläche unten."
+        confirm_link: mein Konto verifizieren
+        ignore_text: Wenn Sie es nicht sind, ignorieren Sie diesen Brief einfach.
+      email_changed:
+        subject: E-Mail geändert
+        title: Ihre E-Mail wurde geändert.
+        welcome: Hallo
+        info_text: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse geändert wird in
+      password_change:
+        subject: Passwort geändert
+        title: Ihr Passwort wurde geändert.
+        welcome: Hallo
+        info_text: Wir kontaktieren Sie, um Ihnen mitzuteilen, dass Ihr Passwort geändert wurde.
+      reset_password_instructions:
+        subject: Setze dein Passwort zurück
+        title: Setzen Sie Ihr Passwort auf FindWorker zurück.
+        welcome: Hallo
+        info_text: Jemand hat einen Link zum Zurücksetzen Ihres Passworts angefordert. Sie können dies über den unten stehenden Link tun.
+        reset_link: Setze mein Passwort zurück
+        ignore_text: Wenn Sie kein Zurücksetzen des Passworts angefordert haben, können Sie diese E-Mail ignorieren.
+        add_info_text: Das Passwort wird erst geändert, wenn Sie dem obigen Link folgen und das neue Passwort geändert wird.
+      unlock_instructions:
+        subject: Dein Account wurde gesperrt
+        title: Entsperren Sie Ihr Konto auf FindWorker.
+        welcome: Hallo
+        info_text: Ihr Konto wurde aufgrund vieler erfolgloser Anmeldeversuche gesperrt.
+        instructions_text: "Bitte klicken Sie auf diesen Link, um Ihr Konto zu entsperren:"
+        unlock_link: Mein Konto entsperren
+    # omniauth_callbacks:
+    #   failure: "Es ist nicht gelungen, Sie als %{kind} zu autorisieren, weil \"%{reason}\"."
+    #   success: "Erfolgreich identifiziert als %{kind}."

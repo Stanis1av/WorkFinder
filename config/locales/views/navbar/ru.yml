@@ -1,0 +1,22 @@
+ru:
+  layouts:
+    navbar:
+      home: Главная
+      resumes: Резюме
+      vacancies: Вакансии
+      about: О Нас
+      sign_up: Зарегистрироваться
+      sign_in: Войти
+
+    language_switcher:
+      languages: Язык
+
+    profile:
+      profile: Профиль
+      show_profile: Мой профиль
+      edit_profile: Редактировать профиль
+      edit_account: Редактировать аккаунт
+      sign_out: Выйти
+
+
+

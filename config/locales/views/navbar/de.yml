@@ -1,0 +1,21 @@
+de:
+  layouts:
+    navbar:
+      home: Startseite
+      resumes: Resumes
+      vacancies: Vacancies
+      about: Über uns
+      sign_up: Registrieren
+      sign_in: Anmelden
+
+    language_switcher:
+      languages: Sprache
+
+    profile:
+      profile: Profile
+      show_profile: My profile
+      edit_profile: Edit profile
+      edit_account: Konto bearbeiten
+      sign_out: Ausloggen
+
+
