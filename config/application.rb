@@ -1,19 +1,6 @@
 require_relative "boot"
 
-require "rails"
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "active_storage/engine"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_mailbox/engine"
-require "action_text/engine"
-require "action_view/railtie"
-require "action_cable/engine"
-require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -22,7 +9,7 @@ Bundler.require(*Rails.groups)
 module WorkFinder
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -31,21 +18,5 @@ module WorkFinder
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    # Don't generate system test files.
-    config.generators.system_tests = nil
-    # Remove HTML <div> blocks on notifications
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
-
-    # Whitelist locales avialable (English, Russian, Deutsche)
-    config.i18n.available_locales = [ :en, :ru, :de]
-    # Set default locale :en (English)
-    config.i18n.default_locale = :en
-
-    # The default locale loading mechanism in Rails does not load locale files
-    # in nested dictionaries, like we have here. So, for this to work, we must
-    # explicitly tell Rails to look further:
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
-
   end
 end

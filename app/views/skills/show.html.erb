@@ -1,7 +1,0 @@
-<% if is_job_seeker? %>
-  <h1><%= t('.vacancies_with_these_skill')%>: <%= @skill.name %></h1>
-  <%= render @skill.vacancies %>
-<% elsif is_company? %>
-  <h1><%= t('.resumes_with_these_skill')%>: <%= @skill.name %></h1>
-  <%= render @skill.resumes %>
-<% end %>
