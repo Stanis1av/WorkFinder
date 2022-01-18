@@ -22,6 +22,11 @@ module WorkFinder
      # Remove HTML <div> blocks on notifications
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
 
+    # Set default locale :en (English)
+    I18n.default_locale = :en
+    # Whitelist locales avialable (English, Russian, Deutsche)
+    I18n.available_locales = [:en, :ru, :de]
+
     # The default locale loading mechanism in Rails does not load locale files
     # in nested dictionaries, like we have here. So, for this to work, we must
     # explicitly tell Rails to look further:
