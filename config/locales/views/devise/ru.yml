@@ -37,6 +37,7 @@ ru:
         sign_up: Зарегистрироваться
     sessions:
       new:
+        log_in_with_provider: Войти с помощью
         title: Войти
         enter_email: Введите адрес электронной почты
         enter_password: Введите пароль

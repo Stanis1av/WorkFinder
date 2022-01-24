@@ -41,6 +41,11 @@ gem 'roadie', '~> 4.0' # Comfortable CSS integration with mails
 # Use Figaro to hide confidential information
 gem 'figaro'
 
+# Use Omniauth
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

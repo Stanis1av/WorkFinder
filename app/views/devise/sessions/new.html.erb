@@ -4,6 +4,17 @@
 
     <h1 class="h3 mb-3 fw-normal"><%= t('.title') %></h1>
 
+    <div class="">
+      <%= link_to user_facebook_omniauth_authorize_path, class: "social-button", id: "facebook-connect", method: :post do %>
+        <span><%= t(".log_in_with_provider") + ' Facebook' %></span>
+      <% end %>
+      <%= link_to user_google_oauth2_omniauth_authorize_path, class: "social-button", id: "google-connect", method: :post do %>
+        <span><%= t(".log_in_with_provider") + ' Google' %></span>
+      <% end %>
+    </div>
+
+    <hr/>
+
     <div class="form-floating">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control first", placeholder: t('.enter_email') %>
       <%= f.label :email, t('.enter_email') %>

@@ -37,6 +37,7 @@ de:
         sign_up: Registrieren
     sessions:
       new:
+        log_in_with_provider: Anmeldung mit
         title: Einloggen
         enter_email: E-Mail Adresse eingeben
         enter_password: Geben Sie Ihr Passwort ein

@@ -37,6 +37,7 @@ en:
         sign_up: Sign up
     sessions:
       new:
+        log_in_with_provider: Login with
         title: Sign in
         enter_email: Enter email
         enter_password: Enter password
