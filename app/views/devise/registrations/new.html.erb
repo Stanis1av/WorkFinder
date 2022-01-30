@@ -20,6 +20,19 @@
     <%= f.label :password_confirmation, t('.confirm_password') %>
   </div>
 
+  <div class="input-group radio-button-role">
+    <div class="input-group-text">
+      <%= f.radio_button :role, 'job_seeker', class: "form-check-input mt-0" %>
+    </div>
+  <%= f.label :role, "JobSeeker", class: "form-control text-start" %>
+  </div>
+  <div class="input-group radio-button-role">
+    <div class="input-group-text">
+      <%= f.radio_button :role, 'company', class: "form-check-input mt-0" %>
+    </div>
+  <%= f.label :role, "Company", class: "form-control text-start" %>
+  </div>
+
   <br/>
   <div class="actions">
     <%= f.submit t('.sign_up'), class: "w-100 btn btn-lg btn-primary" %>

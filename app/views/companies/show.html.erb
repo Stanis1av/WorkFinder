@@ -1,0 +1,10 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <p><%= t('.name') %>: <%= @company.name %></p>
+        <p><%= t('.about_company') %>: <%= @company.about_company %></p>
+        <p><%= t('.website') %>: <%= @company.website %></p>
+        <p><%= t('.email') %>: <%= @company.email %></p>
+
+        <%= link_to t('.edit_details'), edit_company_path, class: "btn btn-primary", data: {turbo: "false"} %>
+    </div>
+</div>

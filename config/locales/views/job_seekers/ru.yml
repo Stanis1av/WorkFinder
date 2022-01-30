@@ -1,0 +1,21 @@
+ru:
+  job_seekers:
+    show:
+      add_new_resume: Добавить новое резюме
+      first_name: Имя
+      last_name: Фамилия
+      email: Почтовый адрес
+      phone_number: Номер телефона
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
+      skills: Навыки
+      read_more: Узнать больше
+
+      edit_details: Редактировать детали
+    edit:
+      first_name: Имя
+      last_name: Фамилия
+      email: Почтовый адрес
+      phone_number: Номер телефона
+      enter: Ввести
