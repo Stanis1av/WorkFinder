@@ -39,9 +39,13 @@
                     <%= f.label :city_or_state_of_residence, t('.city_or_state_of_residence') %>
                     <%= f.text_field :city_or_state_of_residence, class: "form-control" %>
                 </div>
-                <div class="form-group">
-                    <%= f.label :relocation, t('.relocation') %>
-                    <%= f.text_field :relocation, class: "form-control" %>
+                <%= t('.relocation') %><br/>
+                <div class="input-group mb-3">
+
+                    <div class="input-group-text">
+                        <%= f.check_box :relocation, value: true, class: "form-check-input mt-0" %>
+                    </div>
+                    <%= f.label :relocation, t('.i_am_willing_to_relocate'), class: "form-control text-start" %>
                 </div>
                 <div class="form-group">
                     <%= f.label :job_title, t('.job_title') %>
