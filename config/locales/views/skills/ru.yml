@@ -1,0 +1,32 @@
+ru:
+  skills:
+    show:
+      resumes_with_these_skill: Другие резюме с тэгом
+      vacancies_with_these_skill: Другие вакансии с тэгом
+
+      posted: Размещено
+      ago: назад
+
+      first_name: Имя
+      last_name: Фамилия
+      headline: Заголовок
+      country_of_residence: Страна проживания
+      city_or_state_of_residence: Город или штат
+      street_address_residence: Улица (не обязательно)
+      relocation: Переезд
+      i_am_willing_to_relocate: Я готов к переезду
+
+      contact_information: Контактная информация
+      email: Почтовый адрес
+      phone_number: Номер телефона
+
+      work_experience: Опыт работы
+      job_title: Должность
+      company: Наименование компании
+      country_of_work: Страна
+      city_or_state_of_work: Город или штат
+      time_period: Временной период
+
+      skills: Навыки
+
+      read_more: Узнать больше

@@ -1,0 +1,114 @@
+en:
+  resumes:
+    index:
+      resumes: Resumes
+      add_new_resume: Add a new resume
+    new:
+      new_resume: Create a new resume
+
+      personal_information: Personal information
+      first_name: First name
+      last_name: Last name
+      headline: Headline
+      country_of_residence: Country of residence
+      city_or_state_of_residence: City or State of residence
+      street_address_residence: Street address residence (not necessary)
+      relocation: Relocation
+      i_am_willing_to_relocate: I am willing to relocate
+
+      contact_information: Contact information
+      email: Email address
+      phone_number: Phone number
+
+      work_experience: Work experience
+      job_title: Job title
+      company: Company
+      country_of_work: Country
+      city_or_state_of_work: City or State
+      time_period: Time period
+
+      skills: Skills
+
+      create: Create resume
+    resume:
+      posted: Posted
+      ago: ago
+
+      personal_information: Personal information
+      first_name: First name
+      last_name: Last name
+      headline: Headline
+      country_of_residence: Country of residence
+      city_or_state_of_residence: City or State of residence
+      street_address_residence: Street address residence (not necessary)
+      relocation: Relocation
+      i_am_willing_to_relocate: I am willing to relocate
+
+      contact_information: Contact information
+      email: Email address
+      phone_number: Phone number
+
+      work_experience: Work experience
+      job_title: Job title
+      company: Company
+      country_of_work: Country
+      city_or_state_of_work: City or State
+      time_period: Time period
+
+      skills: Skills
+
+      read_more: Read more
+    edit:
+      edit_resume: Edit resume
+
+      personal_information: Personal information
+      first_name: First name
+      last_name: Last name
+      headline: Headline
+      country_of_residence: Country of residence
+      city_or_state_of_residence: City or State of residence
+      street_address_residence: Street address residence (not necessary)
+      relocation: Relocation
+      i_am_willing_to_relocate: I am willing to relocate
+
+      contact_information: Contact information
+      email: Email address
+      phone_number: Phone number
+
+      work_experience: Work experience
+      job_title: Job title
+      company: Company
+      country_of_work: Country
+      city_or_state_of_work: City or State
+      time_period: Time period
+
+      skills: Skills
+
+      edit: Edit resume
+    show:
+      your_resume: Your resume
+
+      personal_information: Personal information
+      first_name: First name
+      last_name: Last name
+      headline: Headline
+      country_of_residence: Country of residence
+      city_or_state_of_residence: City or State of residence
+      street_address_residence: Street address residence (not necessary)
+      relocation: Relocation
+      i_am_willing_to_relocate: I am willing to relocate
+
+      contact_information: Contact information
+      email: Email address
+      phone_number: Phone number
+
+      work_experience: Work experience
+      job_title: Job title
+      company: Company
+      country_of_work: Country
+      city_or_state_of_work: City or State
+      time_period: Time period
+
+      skills: Skills
+
+      edit_resume: Edit resume
