@@ -17,7 +17,13 @@
         <p><%= t('.city_or_state_of_work')%>: <%= resume.city_or_state_of_work %></p>
         <p><%= t('.time_period')%>: <%= resume.time_period %></p>
         <hr/>
-
+        <p>
+          <%= t('.skills')%>:
+          <% resume.skills.each do |skill| %>
+            <%= link_to skill.name, skill_path(id: skill.id) %>
+            <!-- ??? _path(id: skill.id) -->
+          <% end %>
+        </p>
         <%= link_to t('.read_more'), resume_path(id: resume.id), class: "btn btn-sm btn-outline-primary" %>
     </div>
 </article>

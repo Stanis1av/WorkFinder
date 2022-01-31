@@ -72,6 +72,8 @@ class ResumesController < ApplicationController
                                     :company,
                                     :country_of_work,
                                     :city_or_state_of_work,
-                                    :time_period )
+                                    :time_period,
+
+                                    :skill_list )
   end
 end

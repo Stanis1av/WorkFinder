@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_042906) do
+ActiveRecord::Schema.define(version: 2022_01_31_030505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2022_01_30_042906) do
     t.index ["user_id"], name: "index_job_seekers_on_user_id"
   end
 
+  create_table "resume_skills", force: :cascade do |t|
+    t.bigint "skill_id", null: false
+    t.bigint "resume_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["resume_id"], name: "index_resume_skills_on_resume_id"
+    t.index ["skill_id"], name: "index_resume_skills_on_skill_id"
+  end
+
   create_table "resumes", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -55,6 +64,12 @@ ActiveRecord::Schema.define(version: 2022_01_30_042906) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["job_seeker_id"], name: "index_resumes_on_job_seeker_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,5 +97,7 @@ ActiveRecord::Schema.define(version: 2022_01_30_042906) do
 
   add_foreign_key "companies", "users"
   add_foreign_key "job_seekers", "users"
+  add_foreign_key "resume_skills", "resumes"
+  add_foreign_key "resume_skills", "skills"
   add_foreign_key "resumes", "job_seekers"
 end

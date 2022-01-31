@@ -70,8 +70,12 @@
                     <%= f.label :time_period, t('.time_period') %>
                     <%= f.text_field :time_period, class: "form-control" %>
                 </div>
-
-
+                <hr/>
+                <!-- Skills -->
+                <div class="form-group">
+                  <%= f.label :skill_list, t('.skills') %><br />
+                  <%= f.text_field :skill_list, class: "form-control", value: resume_skill_list %>
+                </div>
                 <br/>
                 <div class="btn-group">
                     <%= f.submit t('.edit'), class: "btn btn-success" %>
