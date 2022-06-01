@@ -34,4 +34,5 @@ class ApplicationController < ActionController::Base
       return locale if I18n.available_locales.include?(locale.to_sym)
     end
   end
+
 end

@@ -1,0 +1,2 @@
+module ResumeSkillsHelper
+end

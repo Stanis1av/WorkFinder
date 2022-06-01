@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_company, only: [:edit, :update, :show]
+  # before_action :authenticate_user!
 
   def show
     if current_user.company != nil
@@ -36,8 +37,9 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit( :name,
-                                     :about,
+    params.require(:company).permit( :logo,
+                                     :name,
+                                     :about_company,
                                      :website,
                                      :email )
   end

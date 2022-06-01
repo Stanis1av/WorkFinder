@@ -7,7 +7,7 @@ class UserMailer < Devise::Mailer
   layout 'mailer'
   before_action :init
 
-  default template_path: 'devise/mailer'
+  default template_path: 'users/mailer'
 
   def init
     @send_email = SibApiV3Sdk::TransactionalEmailsApi.new # api instance
@@ -51,9 +51,10 @@ class UserMailer < Devise::Mailer
 
   def password_change(record, opts = {})
     @user = record
-    @to_email = @user.email
+    @to_email = @record.email
     @subject = t('devise.mailer.password_change.subject')
 
     user_mailer(record, :password_change, opts)
   end
 end
+

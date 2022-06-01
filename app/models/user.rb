@@ -5,39 +5,12 @@ class User < ApplicationRecord
   has_one :job_seeker, dependent: :destroy
   has_one :company, dependent: :destroy
 
-  devise :database_authenticatable,
-         :registerable,
-         :confirmable,
-         :recoverable,
-         :rememberable,
-         :validatable,
-         :lockable,
-         :timeoutable,
-         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :validatable
 
-  # validate :password_complexity
-
-  # def password_complexity
-  #   if password.present? and not password.match(/(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/)
-  #     errors.add :password, " должен включать в себя как минимум одну строчную букву, одну заглавную букву и одну цифру"
-  #   end
-  # end
-
-  def self.from_omniauth(auth)
-    find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-    user.skip_confirmation!
-    end
-  end
-
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
-  end
+  private
 
   def role_checking
     if role.blank?
@@ -54,5 +27,9 @@ class User < ApplicationRecord
     elsif role == 'company'
       Company.create(user_id: id)
     end
+  end
+
+  has_one_attached :avatar do |attachable|
+    attachable.variant :avatar_thumbnail, resize_to_limit: [150, 150] if attachable.attached?
   end
 end

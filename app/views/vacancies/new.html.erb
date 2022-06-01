@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-8 mb-3">
+        <h2 class="mb-0"><%= t('.new_vacancy') %></h2>
+
+        <div class="card">
+
+            <%= form_with model: @vacancy, local: true do |f| %>
+
+            <div class="card-header">
+                <div class="form-group">
+                    <%= f.label :job_title, t('.job_title') %>
+                    <%= f.text_field :job_title, class: "form-control" %>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+            <div class="field">
+                <% if @company.logo.attached? %>
+                    <%= image_tag @company.logo_thumbnail, class: "img-thumbnail company-logo-profile m-2" %>
+                <% else %>
+                    <%= embedded_svg("company-logo", class: "img-thumbnail company-logo-profile m-2", alt: "job_seeker-logo") %>
+                <% end %>
+            </div>
+
+            <div class="field">
+                <%= f.file_field :logo %>
+                <%#= f.button%>
+            </div>
+
+            <%#= render "shared/validation-messages", object: f.object %>
+            <!-- About me -->
+            <div class="form-group">
+                <%= f.label :company_name, t('.company_name') %>: <%= @company.name %>
+                <%= f.hidden_field :company_name, value: @company.name %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :country, t('.country') %>
+                <%= f.text_field :country, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :location, t('.location') %>
+                <%= f.text_field :location, class: "form-control" %>
+            </div>
+
+            <div class="form-check m-2">
+                <%= f.check_box :remote, class: "form-check-input" %>
+                <%= f.label :remote, t('.remote'), class: "form-check-label" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :type_of_job, t('.type_of_job') %>
+                <%= f.text_field :type_of_job, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :salary, t('.salary') %>
+                <%= f.text_field :salary, class: "form-control" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :description, t('.description') %>
+                <%= f.text_area :description, class: "form-control" %>
+            </div>
+            <!-- Skills -->
+            <div class="form-group">
+              <%= f.label :skill_list, t('.skills') %><br />
+              <%= f.text_field :skill_list, class: "form-control", value: vacancy_skill_list %>
+            </div>
+            <br/>
+            <div class="btn-group">
+                <%= f.submit t('.create'), class: "btn btn-success" %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+<div>

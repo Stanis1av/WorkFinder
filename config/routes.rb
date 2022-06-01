@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
-    get 'home/index'
-    root 'home#index'
+    root to: "homepage#index"
 
-    devise_for :users, skip: :omniauth_callbacks
+    devise_for :users, controllers: {
+        registrations: 'users/registrations'
+      }
 
-    resource :job_seeker, path: 'jobseeker_profile', only: %i[ show edit update ]
-    resource :company, path: 'company_profile', only: %i[ show edit update ]
+    resource :job_seeker, path: 'jobseeker_profile', only: [:edit, :update, :show]
+    resource :company, path: 'company_profile', only: [:edit, :update, :show]
 
     resources :resumes
-    # resources :vacancies
+    resources :vacancies
 
-    resources :skills
+    get '/resumes/skill/:id', to: 'resume_skills#show', as: 'resumes_skill'
+    get '/vacancies/skill/:id', to: 'vacancy_skills#show', as: 'vacancies_skill'
+
+    resource :about, only: :show
 
   end
-
-  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: "users/omniauth_callbacks"}
 end

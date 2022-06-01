@@ -6,9 +6,12 @@ en:
       last_name: Last ame
       email: Email
       phone_number: Phone number
-      country: Country
-      street_address: Street address
-      city_or_state: City or state
+
+      country_of_residence: Country of Residence
+      city_or_state_of_residence: City or state of residence
+      street_address_residence: Residential address
+      relocation: I'm ready to relocation
+
       skills: Skills
       read_more: Read more
 
@@ -19,4 +22,10 @@ en:
       last_name: Last ame
       email: Email
       phone_number: Phone number
+
+      country_of_residence: Country of Residence
+      city_or_state_of_residence: City or state of residence
+      street_address_residence: Residential address
+      relocation: I'm ready to relocation
+
       enter: Enter

@@ -1,0 +1,54 @@
+ru:
+  vacancies:
+    index:
+      vacancies: Вакансии
+      add_new_vacancy: Добавить новую вакансию
+    new:
+      new_vacancy: Создать новую вакансию
+      job_title: Заголовок вакансии
+      company_name: Имя компании
+      country: Страна
+      location: Местоположение
+      remote: Возможна ли работа удалённо
+      type_of_job: Тип работы
+      salary: Зарплата
+      description: Описание, требовании, навыков, обязаностей
+      skills: Навыки
+      create: Создать резюме
+    vacancy:
+      posted: Размещено
+      ago: назад
+      job_title: Заголовок вакансии
+      company_name: Имя компании
+      country: Страна
+      location: Местоположение
+      remote: Возможна ли работа удалённо
+      type_of_job: Тип работы
+      salary: Зарплата
+      description: Описание, требовании, навыков, обязаностей
+      skills: Навыки
+      read_more: Узнать больше
+    edit:
+      edit_vacancy: Изменить вакансию
+      job_title: Заголовок вакансии
+      company_name: Имя компании
+      country: Страна
+      location: Местоположение
+      remote: Возможна ли работа удалённо
+      type_of_job: Тип работы
+      salary: Зарплата
+      description: Описание, требовании, навыков, обязаностей
+      skills: Навыки
+      edit: Редактировать резюме
+    show:
+      your_vacancy: Ваша вакансия
+      job_title: Заголовок вакансии
+      company_name: Имя компании
+      country: Страна
+      location: Местоположение
+      remote: Возможна ли работа удалённо
+      type_of_job: Тип работы
+      salary: Зарплата
+      description: Описание, требовании, навыков, обязаностей
+      skills: Навыки
+      edit_vacancy: Редактировать вакансию

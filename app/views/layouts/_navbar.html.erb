@@ -1,31 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
   <div class="container-fluid">
     <%= link_to t('.home'), root_path, class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
+      <div class="navbar-nav">
+        <%= link_to t('.resumes'), resumes_path, class: "nav-link" %>
+      </div>
+      <div class="navbar-nav">
+        <%= link_to t('.vacancies'), vacancies_path, class: "nav-link" %>
+      </div>
+      <div class="navbar-nav">
+        <%= link_to t('.about'), about_path, class: "nav-link" %>
+      </div>
       <div class="ms-auto p-2 bd-highlight"> <!-- Positioning the navigation bar item in the far right corner -->
-        <div class="btn-toolbar" role="toolbar">
-        <% if user_signed_in? %>
-
-          <%= button_to 'Редактировать аккаунт', edit_user_registration_path, method: :get, class: "btn btn-outline-warning", data: { turbo: "false" } %>
-
-          <%= button_to 'Выйти', destroy_user_session_path, method: :delete, class: "btn btn-outline-danger", data: { turbo: "false" } %>
-
-        <% else %>
-          <%= link_to 'Зарегистрироваться', new_user_registration_path, class: "btn btn-outline-success", data: { turbo: "false" } %>
-          <%= link_to 'Войти', new_user_session_path, class: "btn btn-outline-success", data: { turbo: "false" } %>
-
-        <% end %>
-        <div class="text-start">
-          <%= render 'layouts/language_switcher' %>
-        </div>
-        </div>
+        <%= render 'layouts/profile' %>
       </div>
       <div class="text-start">
-
+        <%= render 'layouts/language_switcher' %>
       </div>
     </div>
   </div>

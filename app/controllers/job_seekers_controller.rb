@@ -1,6 +1,6 @@
 class JobSeekersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_job_seeker, only: %i[ show edit update ]
+  before_action :set_job_seeker, only: [:edit, :update, :show]
 
   def show
     if current_user.job_seeker != nil
@@ -21,6 +21,7 @@ class JobSeekersController < ApplicationController
   end
 
   def update
+    # debugger
     if @job_seeker.valid?
       @job_seeker.update(job_seeker_params)
       redirect_to job_seeker_path, notice: 'Профиль успешно обновлён'
@@ -36,9 +37,16 @@ class JobSeekersController < ApplicationController
   end
 
   def job_seeker_params
-    params.require(:job_seeker).permit(:first_name,
+    params.require(:job_seeker).permit(:avatar,
+                                       :first_name,
                                        :last_name,
                                        :email,
-                                       :phone_number)
+                                       :phone_number,
+                                       location_attributes: [
+                                         :id,
+                                         :country_of_residence,
+                                         :city_or_state_of_residence,
+                                         :street_address_residence,
+                                         :relocation])
   end
 end

@@ -7,10 +7,13 @@ class ResumesController < ApplicationController
   end
 
   def index
-    @resumes = Resume.all
+    # @resumes = Resume.all
+    @resumes = resumes
+    @query = query
   end
 
   def new
+    current_job_seeker
     @resume = Resume.new
   end
 
@@ -42,6 +45,10 @@ class ResumesController < ApplicationController
 
   private
 
+  def current_job_seeker
+    @job_seeker = current_user.job_seeker
+  end
+
   def set_resume
     @resume = Resume.find(params[:id])
   end
@@ -56,24 +63,30 @@ class ResumesController < ApplicationController
     end
   end
 
+  def resumes
+    if query
+      Resume.where("headline ILIKE ?", "%#{query}%")
+
+      # Resume.joins(:skills).where("name ILIKE ?", "%#{query}%")
+    else
+      Resume.all
+    end
+  end
+
+  def query
+    params[:query]
+  end
+
   def resume_params
-    params.require(:resume).permit( :first_name,
+    params.require(:resume).permit( :headline,
+                                    :avatar,
+                                    :first_name,
                                     :last_name,
-                                    :headline,
-                                    # :summary,
                                     :phone_number,
-
-                                    :relocation,
                                     :country_of_residence,
-                                    :street_address_residence,
                                     :city_or_state_of_residence,
-
-                                    :job_title,
-                                    :company,
-                                    :country_of_work,
-                                    :city_or_state_of_work,
-                                    :time_period,
-
-                                    :skill_list )
+                                    :street_address_residence,
+                                    :relocation,
+                                    :skill_list)
   end
 end

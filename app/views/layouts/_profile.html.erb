@@ -1,0 +1,44 @@
+<ul class="navbar-nav">
+  <% if user_signed_in? %>
+  <li class="nav-item">
+  <div class="dropdown text-end">
+    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+      <% if is_job_seeker? %>
+
+        <% if current_user.job_seeker.avatar.attached? %>
+          <%= image_tag user_avatar(current_user.job_seeker, 40), class: "rounded-circle profile-icon", alt: "job_seeker-logo" %>
+        <% else %>
+          <%= embedded_svg("profile-logo", class: "rounded-circle profile-icon", alt: "job_seeker-logo") %>
+        <% end %>
+
+      <% elsif is_company? %>
+
+        <% if current_user.company.logo.attached? %>
+          <%= image_tag company_logo(current_user.company, 40), class: "rounded-circle profile-icon", alt: "company-logo"%>
+        <% else %>
+          <%= embedded_svg("company-logo", class: "rounded-circle profile-icon", alt: "company-logo") %>
+        <% end %>
+
+      <% end %>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser">
+      <% if is_job_seeker? %>
+          <li><%= link_to t('.show_profile'), job_seeker_path, class: "dropdown-item" %></li>
+          <li><%= link_to t('.edit_profile'), edit_job_seeker_path, class: "dropdown-item" %></li>
+        <% elsif is_company? %>
+          <li><%= link_to t('.show_profile'), company_path, class: "dropdown-item" %></li>
+          <li><%= link_to t('.edit_profile'), edit_company_path, class: "dropdown-item" %></li>
+
+        <% end %>
+        <li><%= link_to t('.edit_account'), edit_user_registration_path, class: "dropdown-item" %></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+    </ul>
+  </div>
+
+  </li>
+  <% else %>
+    <%= link_to t('.sign_up'), new_user_registration_path, class: "btn btn-outline-success" %>
+    <%= link_to t('.sign_in'), new_user_session_path, class: "btn btn-outline-success" %>
+  <% end %>
+</ul>

@@ -6,110 +6,42 @@ ru:
     new:
       new_resume: Создать новое резюме
       edit_resume: Изменить резюме
-
-      personal_information: Персональная информация
       first_name: Имя
       last_name: Фамилия
-      headline: Заголовок
-      country_of_residence: Страна проживания
-      city_or_state_of_residence: Город или штат
-      street_address_residence: Улица (не обязательно)
-      relocation: Переезд
-      i_am_willing_to_relocate: Я готов к переезду
-
-      contact_information: Контактная информация
-      email: Почтовый адрес
       phone_number: Номер телефона
-
-      work_experience: Опыт работы
-      job_title: Должность
-      company: Наименование компании
-      country_of_work: Страна
-      city_or_state_of_work: Город или штат
-      time_period: Временной период
-
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
       skills: Навыки
-
       create: Создать резюме
     resume:
       posted: Размещено
       ago: назад
-
-      personal_information: Персональная информация
       first_name: Имя
       last_name: Фамилия
-      headline: Заголовок
-      country_of_residence: Страна проживания
-      city_or_state_of_residence: Город или штат
-      street_address_residence: Улица (не обязательно)
-      relocation: Переезд
-      i_am_willing_to_relocate: Я готов к переезду
-
-      contact_information: Контактная информация
-      email: Почтовый адрес
       phone_number: Номер телефона
-
-      work_experience: Опыт работы
-      job_title: Должность
-      company: Наименование компании
-      country_of_work: Страна
-      city_or_state_of_work: Город или штат
-      time_period: Временной период
-
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
       skills: Навыки
-
       read_more: Узнать больше
     edit:
       edit_resume: Изменить резюме
-
-      personal_information: Персональная информация
       first_name: Имя
       last_name: Фамилия
-      headline: Заголовок
-      country_of_residence: Страна проживания
-      city_or_state_of_residence: Город или штат
-      street_address_residence: Улица (не обязательно)
-      relocation: Переезд
-      i_am_willing_to_relocate: Я готов к переезду
-
-      contact_information: Контактная информация
-      email: Почтовый адрес
       phone_number: Номер телефона
-
-      work_experience: Опыт работы
-      job_title: Должность
-      company: Наименование компании
-      country_of_work: Страна
-      city_or_state_of_work: Город или штат
-      time_period: Временной период
-
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
       skills: Навыки
-
       edit: Редактировать резюме
     show:
       your_resume: Ваше резюме
-
-      personal_information: Персональная информация
       first_name: Имя
       last_name: Фамилия
-      headline: Заголовок
-      country_of_residence: Страна проживания
-      city_or_state_of_residence: Город или штат
-      street_address_residence: Улица (не обязательно)
-      relocation: Переезд
-      i_am_willing_to_relocate: Я готов к переезду
-
-      contact_information: Контактная информация
-      email: Почтовый адрес
       phone_number: Номер телефона
-
-      work_experience: Опыт работы
-      job_title: Должность
-      company: Наименование компании
-      country_of_work: Страна
-      city_or_state_of_work: Город или штат
-      time_period: Временной период
-
+      country: Страна
+      street_address: Улица
+      city_or_state: Город или штат
       skills: Навыки
-
       edit_resume: Редактировать резюме

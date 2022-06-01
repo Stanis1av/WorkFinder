@@ -1,33 +1,8 @@
 de:
-  skills:
+  vacancy_skills:
     show:
-      resumes_with_these_skill: Resumes with these skill
       vacancies_with_these_skill: Vacancies with these skill
 
-      posted: Posted
-      ago: ago
-
-      personal_information: Personal information
-      first_name: First name
-      last_name: Last name
-      headline: Headline
-      country_of_residence: Country of residence
-      city_or_state_of_residence: City or State of residence
-      street_address_residence: Street address residence (not necessary)
-      relocation: Relocation
-      i_am_willing_to_relocate: I am willing to relocate
-
-      contact_information: Contact information
-      email: Email address
-      phone_number: Phone number
-
-      work_experience: Work experience
-      job_title: Job title
-      company: Company
-      country_of_work: Country
-      city_or_state_of_work: City or State
-      time_period: Time period
-
-      skills: Skills
-
-      read_more: Read more
+  resume_skills:
+    show:
+      resumes_with_these_skill: Resumes with these skill

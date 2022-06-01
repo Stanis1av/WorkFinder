@@ -1,26 +1,29 @@
 <div class="card mb-3">
     <div class="card-header">
-        <h1 class="mb-0"><%= t('.your_resume')%></h1>
+        <h2 class="mb-0"><%= @resume.headline %></h2>
     </div>
     <div class="card-body">
+
+        <% if @resume.avatar.attached? %>
+            <%#= image_tag(@job_seeker.avatar_thumbnail) %>
+            <%= image_tag @resume.avatar_thumbnail, class: "img-thumbnail avatar-user-profile m-2" %>
+        <% else %>
+            <%= embedded_svg("profile-logo", class: "img-thumbnail avatar-user-profile m-2", alt: "job_seeker-logo") %>
+        <% end %>
+
         <p><%= t('.first_name')%>: <%= @resume.first_name %></p>
         <p><%= t('.last_name')%>: <%= @resume.last_name %></p>
-        <p><%= t('.headline')%>: <%= @resume.headline %></p>
         <p><%= t('.phone_number')%>: <%= @resume.phone_number %></p>
+        <hr/>
         <p><%= t('.country_of_residence')%>: <%= @resume.country_of_residence %></p>
-        <p><%= t('.street_address_residence')%>: <%= @resume.street_address_residence %></p>
         <p><%= t('.city_or_state_of_residence')%>: <%= @resume.city_or_state_of_residence %></p>
+        <p><%= t('.street_address_residence')%>: <%= @resume.street_address_residence %></p>
         <p><%= t('.relocation')%>: <%= @resume.relocation %></p>
-        <p><%= t('.job_title')%>: <%= @resume.job_title %></p>
-        <p><%= t('.company')%>: <%= @resume.company %></p>
-        <p><%= t('.country_of_work')%>: <%= @resume.country_of_work %></p>
-        <p><%= t('.city_or_state_of_work')%>: <%= @resume.city_or_state_of_work %></p>
-        <p><%= t('.time_period')%>: <%= @resume.time_period %></p>
         <hr/>
         <p>
           <%= t('.skills')%>:
           <% @resume.skills.each do |skill| %>
-            <%= link_to skill.name, skill_path(id: skill.id) %>
+            <%= link_to skill.name, resumes_skill_path(id: skill) %>
           <% end %>
         </p>
         <%= link_to t('.edit_resume'), edit_resume_path, class: "btn btn-primary" %>

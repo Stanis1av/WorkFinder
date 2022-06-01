@@ -1,0 +1,98 @@
+en:
+  users:
+    confirmations:
+      new:
+        title: Re-send confirmation instructions
+        enter_email: Enter email
+        resend_confirmation_instructions: Re-send instructions
+    passwords:
+      edit:
+        title: Change your password
+        enter_new_password: New password
+        confirm_new_password: Confirm new password
+        change_my_password: Change my password
+      new:
+        title: Forgotten password?
+        enter_your_email: Enter your email
+        send_confirmation_instructions: Send instructions
+    registrations:
+      edit:
+        title: Edit account
+        current_email: Email
+        enter_new_password: New password
+        confirm_new_password: Confirm new password
+        characters_min: characters minimum
+        current_password: Current password
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you do not wish to modify
+        unhappy: Unhappy
+        update: Update
+        back: Back
+      new:
+        title: Sign up
+        enter_email: Enter email
+        enter_password: Enter password
+        confirm_password: Confirm your password
+        sign_up: Sign up
+    sessions:
+      new:
+        title: Sign in
+        enter_email: Enter email
+        enter_password: Enter password
+        remember_me: Remember me
+        sign_in: Sign in
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Haven't received instructions to activate your account?
+        didn_t_receive_unlock_instructions: Haven't received unlocking instructions?
+        forgot_your_password: Forgotten your password?
+        sign_in: Already registered?
+        sign_in_link: Sign in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Don't have an account?
+        sign_up_link: Sign up
+        confirmation: Password mismatch # ???
+    unlocks:
+      new:
+        title: Re-sent unlocking instructions
+        enter_email: Enter email
+        resend_unlock_instructions: Re-sent unlocking instructions
+    mailer:
+      confirmation_instructions:
+        subject: Confirm my account
+        title: Confirm your email address on FindWorker.
+        welcome: Welcome
+        gratitude: Thanks for joining FindWorker.
+        info_text: "We want to verify your email address. To confirm your email address and complete your registration, click the button below."
+        confirm_link: Confirm my account
+        ignore_text: If it's not you, then just ignore this letter.
+      email_changed:
+        subject: Email changed
+        title: Your email has been changed.
+        welcome: Hello
+        info_text: We're contacting you to notify you that your email is being changed to
+      password_change:
+        subject: Password changed
+        title: Your password has been changed.
+        welcome: Hello
+        info_text: We're contacting you to notify you that your password has been changed.
+      reset_password_instructions:
+        subject: Reset your password
+        title: Reset your password on FindWorker.
+        welcome: Hello
+        info_text: Someone has requested a link to reset your password. You can do this through the link below.
+        reset_link: Reset my password
+        ignore_text: If you did not request a password reset, you can ignore this email.
+        add_info_text: The password is not changed until you follow the link above and the new password is changed.
+      unlock_instructions:
+        subject: Your account has been locked
+        title: Unlock your account on FindWorker.
+        welcome: Hello
+        info_text: Your account has been blocked due to an excessive number of failed sign-in attempts.
+        instructions_text: "Please click on this link to unlock your account:"
+        unlock_link: Unlock my account
+    # omniauth_callbacks:
+    #   failure: "It has not been possible to authorize you as %{kind} because \"%{reason}\"."
+    #   success: "Successfully identified as %{kind}."

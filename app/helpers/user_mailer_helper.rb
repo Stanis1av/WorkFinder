@@ -1,7 +1,7 @@
 module UserMailerHelper
   def user_mailer(record, action, opts={})
 
-    html = render_to_string template: "devise/mailer/#{action.to_s}"
+    html = render_to_string template: "users/mailer/#{action.to_s}"
     document = Roadie::Document.new html
     document = document.transform
 
@@ -22,7 +22,7 @@ module UserMailerHelper
 
     begin
       # Send a transactional email
-      # result = @send_email.send_transac_email(@mail_letter)
+      result = @send_email.send_transac_email(@mail_letter)
 
       # logger.debug "#{'=' * 110 }"
       # logger.debug "Result: \n#{result}"

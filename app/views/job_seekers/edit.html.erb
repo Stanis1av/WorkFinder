@@ -2,6 +2,19 @@
     <div class="card-body">
         <%= form_with model: @job_seeker, local: true, url: job_seeker_path, method: :put do |f| %>
 
+        <div class="field">
+            <% if @job_seeker.avatar.attached? %>
+                <%#= image_tag(@job_seeker.avatar_thumbnail) %>
+                <%= image_tag @job_seeker.avatar_thumbnail, class: "img-thumbnail avatar-user-profile m-2" %>
+            <% else %>
+                <%= embedded_svg("profile-logo", class: "img-thumbnail avatar-user-profile m-2", alt: "job_seeker-logo") %>
+            <% end %>
+        </div>
+        <div class="field">
+            <%= f.file_field :avatar %>
+            <%#= f.button%>
+        </div>
+
         <div class="mb-3">
             <%= f.label :first_name, t('.first_name'), class: "form-label" %>
             <%= f.text_field :first_name, class: "form-control" %>
@@ -18,6 +31,27 @@
             <%= f.label :phone_number, t('.phone_number'), class: "form-label" %>
             <%= f.text_field :phone_number, class: "form-control" %>
         </div>
+
+        <%= f.fields_for :location do |l| %>
+            <div class="mb-3">
+                <%= l.label :country_of_residence, t('.country_of_residence'), class: "form-label" %>
+                <%= l.text_field :country_of_residence, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= l.label :city_or_state_of_residence, t('.city_or_state_of_residence'), class: "form-label" %>
+                <%= l.text_field :city_or_state_of_residence , class: "form-control" %>
+            <div/>
+            <div class="mb-3">
+                <%= l.label :street_address_residence, t('.street_address_residence'), class: "form-label" %>
+                <%= l.text_field :street_address_residence , class: "form-control" %>
+            <div/>
+            <div class="form-check">
+                <%= l.check_box :relocation, { class: "form-check-input" } %>
+                <%= l.label :relocation, t('.relocation'), class: "form-check-label" %>
+            </div>
+
+        <% end %>
+
             <%= f.submit t('.enter'), class: "btn btn-primary" %>
         <% end %>
     </div>

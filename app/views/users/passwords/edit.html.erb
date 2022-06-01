@@ -1,0 +1,26 @@
+<%= render "users/shared/error_messages", resource: resource %>
+
+<div class="form-devise text-center">
+  <h1 class="h3 mb-3 fw-normal"><%= t('.title') %></h1>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-floating">
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control first", placeholder: t('.enter_new_password') %>
+      <%= f.label :password, t('.enter_new_password') %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control last", placeholder: t('.confirm_new_password') %>
+      <%= f.label :password_confirmation, t('.confirm_new_password') %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t('.change_my_password'), class: "w-100 btn btn-lg btn-primary", data: {turbo: "false"} %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>

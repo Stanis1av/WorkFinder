@@ -1,0 +1,2 @@
+module VacancySkillsHelper
+end
