@@ -9,9 +9,12 @@ ru:
       first_name: Имя
       last_name: Фамилия
       phone_number: Номер телефона
-      country: Страна
-      street_address: Улица
-      city_or_state: Город или штат
+
+      country_of_residence: Страна проживания
+      city_or_state_of_residence: Город или штат проживания
+      street_address_residence: Улица проживания
+      relocation: Я готов к переезду
+
       skills: Навыки
       create: Создать резюме
     resume:
@@ -20,9 +23,12 @@ ru:
       first_name: Имя
       last_name: Фамилия
       phone_number: Номер телефона
-      country: Страна
-      street_address: Улица
-      city_or_state: Город или штат
+
+      country_of_residence: Страна проживания
+      city_or_state_of_residence: Город или штат проживания
+      street_address_residence: Улица проживания
+      relocation: Я готов к переезду
+
       skills: Навыки
       read_more: Узнать больше
     edit:
@@ -30,9 +36,12 @@ ru:
       first_name: Имя
       last_name: Фамилия
       phone_number: Номер телефона
-      country: Страна
-      street_address: Улица
-      city_or_state: Город или штат
+
+      country_of_residence: Страна проживания
+      city_or_state_of_residence: Город или штат проживания
+      street_address_residence: Улица проживания
+      relocation: Я готов к переезду
+
       skills: Навыки
       edit: Редактировать резюме
     show:
@@ -40,8 +49,11 @@ ru:
       first_name: Имя
       last_name: Фамилия
       phone_number: Номер телефона
-      country: Страна
-      street_address: Улица
-      city_or_state: Город или штат
+
+      country_of_residence: Страна проживания
+      city_or_state_of_residence: Город или штат проживания
+      street_address_residence: Улица проживания
+      relocation: Я готов к переезду
+
       skills: Навыки
       edit_resume: Редактировать резюме
