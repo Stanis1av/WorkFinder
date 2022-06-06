@@ -6,9 +6,9 @@
       <% if is_job_seeker? %>
 
         <% if current_user.job_seeker.avatar.attached? %>
-          <%= image_tag user_avatar(current_user.job_seeker, 40), class: "rounded-circle profile-icon", alt: "job_seeker-logo" %>
+          <%= image_tag user_avatar(current_user.job_seeker, 40), class: "rounded-circle profile-icon", alt: "jobseeker-logo" %>
         <% else %>
-          <%= embedded_svg("profile-logo", class: "rounded-circle profile-icon", alt: "job_seeker-logo") %>
+          <%= image_tag "logos/jobseeker-default.svg", width: 40, class: "rounded-circle profile-icon", alt: "jobseeker-default" %>
         <% end %>
 
       <% elsif is_company? %>
@@ -16,7 +16,7 @@
         <% if current_user.company.logo.attached? %>
           <%= image_tag company_logo(current_user.company, 40), class: "rounded-circle profile-icon", alt: "company-logo"%>
         <% else %>
-          <%= embedded_svg("company-logo", class: "rounded-circle profile-icon", alt: "company-logo") %>
+          <%= image_tag "logos/company-default.svg", width: 40, class: "rounded-circle profile-icon", alt: "company-default" %>
         <% end %>
 
       <% end %>

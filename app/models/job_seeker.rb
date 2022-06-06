@@ -2,8 +2,8 @@ class JobSeeker < ApplicationRecord
   after_create :create_job_seeker_location
 
   belongs_to :user
-  has_many :resumes, dependent: :destroy
-  has_one :location
+  has_one :resume, dependent: :destroy
+  has_one :location, dependent: :destroy
 
   has_one_attached :avatar
 

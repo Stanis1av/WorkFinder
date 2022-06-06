@@ -1,0 +1,22 @@
+<hr/><!-- Work Experience -->
+<div data-controller="nested-form" data-nested-form-wrapper-selector-value=".nested-form-wrapper">
+    <p class="fw-lighter fs-4 mb-1"><%= t('.work_experience') %></p>
+
+    <template data-nested-form-target="template">
+    <%= f.fields_for :work_experiences, WorkExperience.new, child_index: 'NEW_RECORD' do |work_experience_field| %>
+
+        <%= render "work_experience_fields", f: work_experience_field %>
+
+    <% end %>
+    </template>
+
+    <%= f.fields_for :work_experiences do |work_experience_field| %>
+        <%= render "work_experience_fields", f: work_experience_field %>
+    <% end %>
+
+    <!-- Inserted elements will be injected before that target. -->
+    <div data-nested-form-target="target"></div>
+
+    <%= link_to t('.add_work_experience'), '#', class: 'btn btn-primary', data: { action: 'nested-form#add' } %>
+    <!-- <button type="button" data-action="nested-form#add">Add work experience</button> -->
+</div>

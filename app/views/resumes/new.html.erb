@@ -1,74 +1,99 @@
 <div class="row">
     <div class="col-md-8 mb-3">
-        <h2 class="mb-0"><%= t('.new_resume') %></h2>
+        <h2 class="mb-2"><%= t('.new_resume') %></h2>
 
-        <div class="card">
+        <div class="shadow p-3 mb-5 bg-body rounded resume-padding">
 
-                <%= form_with model: @resume, local: true do |f| %>
+            <%= simple_form_for(@resume) do |f| %>
 
-                <div class="card-header">
-                    <div class="form-group">
-                        <%= f.label :headline, t('.first_name'), class: "form-label" %>
-                        <%= f.text_field :headline, class: "form-control" %>
-                    </div>
-                </div>
-                <div class="card-body">
+                <% if @resume.errors.full_messages.any? %>
+                  <% @resume.errors.full_messages.each do |error_message| %>
+                    <%= error_message if @resume.errors.full_messages.first == error_message %> <br />
+                  <% end %>
+                <% end %>
 
                 <%#= render "shared/validation-messages", object: f.object %>
-                <!-- About me -->
 
-                <div class="field m-2">
+                <!-- Personal Information -->
+                <p class="fw-lighter fs-4 mb-1"><%= t('.personal_information') %></p>
+
+                <div class="image-upload" data-controller="photo-preview">
                     <% if @job_seeker.avatar.attached? %>
-                        <%#= image_tag(@job_seeker.avatar_thumbnail) %>
-                        <%= image_tag @job_seeker.avatar_thumbnail, class: "img-thumbnail avatar-user-profile m-2" %>
+                        <%= image_tag @job_seeker.avatar, width: 250, class: "resume-image img-thumbnail m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
                     <% else %>
-                        <%= embedded_svg("profile-logo", class: "img-thumbnail avatar-user-profile m-2", alt: "job_seeker-logo") %>
+                        <%= image_tag "jobseeker-default.png", width: 250, class: "resume-image img-thumbnail m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
                     <% end %>
-                </div>
-                <div class="field">
-                    <%= f.file_field :avatar %>
-                    <%#= f.button%>
+
+                    <%= f.input :avatar,
+                                input_html: { class: 'd-none', data: { action: "click->photo-preview#photo_input", photo_preview_target: "photoInput" } },
+                                label_html: { class: 'btn btn-outline-primary mb-2' },
+                                label: t('.upload-photo'),
+                                hint: t('.upload-photo-later') %>
                 </div>
 
-                <div class="form-group">
-                    <%= f.label :first_name, t('.first_name'), class: "form-label" %>
+                <div class="mb-3">
+                    <%= f.label :first_name, t('.first_name'), class: "form-label fw-bolder" %>
                     <%= f.text_field :first_name, value: @job_seeker.first_name, class: "form-control" %>
                 </div>
-                <div class="form-group">
-                    <%= f.label :last_name, t('.last_name'), class: "form-label" %>
+                <div class="mb-3">
+                    <%= f.label :last_name, t('.last_name'), class: "form-label fw-bolder" %>
                     <%= f.text_field :last_name, value: @job_seeker.last_name, class: "form-control" %>
                 </div>
-                <div class="form-group">
-                    <%= f.label :phone_number, t('.phone_number'), class: "form-label" %>
-                    <%= f.text_field :phone_number, value: @job_seeker.phone_number, class: "form-control" %>
+                <div class="mb-3">
+                    <%= f.label :age, t('.age'), class: "form-label fw-bolder" %>
+                    <%= f.text_field :age, value: @job_seeker.age, class: "form-control" %>
                 </div>
+                <div class="mb-3">
+                    <%= f.label :headline, t('.headline'), class: "form-label fw-bolder" %>
+                    <%= f.text_field :headline, class: "form-control" %>
+                </div>
+
                 <!-- Location -->
-                <div class="form-group">
-                    <%= f.label :country_of_residence, t('.country_of_residence'), class: "form-label" %>
+                <div class="mb-3">
+                    <%= f.label :country_of_residence, t('.country_of_residence'), class: "form-label fw-bolder" %>
                     <%= f.text_field :country_of_residence, value: @job_seeker.location.country_of_residence, class: "form-control" %>
                 </div>
-                <div class="form-group">
-                    <%= f.label :city_or_state_of_residence, t('.city_or_state_of_residence'), class: "form-label" %>
+                <div class="mb-3">
+                    <%= f.label :city_or_state_of_residence, t('.city_or_state_of_residence'), class: "form-label fw-bolder" %>
                     <%= f.text_field :city_or_state_of_residence, value: @job_seeker.location.city_or_state_of_residence, class: "form-control" %>
                 </div>
-                <div class="form-group">
-                    <%= f.label :street_address_residence, t('.street_address_residence'), class: "form-label" %>
-                    <%= f.text_field :street_address_residence, value: @job_seeker.location.street_address_residence, class: "form-control" %>
-                </div>
+                <p class="fw-bolder mb-1"><%= t('.relocation') %></p>
                 <div class="form-check">
-                    <%= f.check_box :relocation, { checked: @job_seeker.location.relocation, class: "form-check-input" }  %>
-                    <%= f.label :relocation, "Я готов к переезду", class: "form-check-label" %>
+                    <%= f.check_box :relocation, class: "form-check-input" %>
+                    <%= f.label :relocation, t('.willing_relocate'), class: "form-check-label" %>
                 </div>
-                <!-- Skills -->
-                <div class="form-group">
-                  <%= f.label :skill_list, t('.skills') %><br />
+                <p class="fw-bolder mb-1"><%= t('.remote') %></p>
+                <div class="form-check">
+                    <%= f.check_box :remote, class: "form-check-input" %>
+                    <%= f.label :remote, t('.willing_remote'), class: "form-check-label" %>
+                </div>
+
+                <!-- Contact Information -->
+                <p class="fw-lighter fs-4 mb-1"><%= t('.contact_information') %></p>
+                <p class="fw-lighter"><small><%= t('.mail_phone_provided') %></small></p>
+                <div class="mb-3">
+                    <%= f.label :email, t('.email'), class: "form-label fw-bolder" %>
+                    <%= f.text_field :email, value: @job_seeker.email, class: "form-control" %>
+                </div>
+                <div class="mb-3">
+                    <%= f.label :phone_number, t('.phone_number'), class: "form-label fw-bolder" %>
+                    <%= f.text_field :phone_number, value: @job_seeker.phone_number, class: "form-control" %>
+                </div>
+
+                <%= render "work_experience_form", f: f %>
+
+                <%= render "education_form", f: f %>
+
+                <hr/><!-- Skills -->
+                <div class="mb-3">
+                  <%= f.label :skill_list, t('.skills'), class: "form-label fw-bolder mb-1" %>
+                  <small class="fw-light">( <%= t('.enter_skills') %>: "," )</small>
                   <%= f.text_field :skill_list, class: "form-control", value: resume_skill_list %>
                 </div>
-                <br/>
-                <div class="btn-group">
-                    <%= f.submit t('.create'), class: "btn btn-success" %>
-                </div>
-                <% end %>
+
+                <%= f.submit t('.create'), class: "btn btn-success" %>
+
+            <% end %>
         </div>
     </div>
 <div>

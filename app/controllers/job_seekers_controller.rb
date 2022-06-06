@@ -40,6 +40,7 @@ class JobSeekersController < ApplicationController
     params.require(:job_seeker).permit(:avatar,
                                        :first_name,
                                        :last_name,
+                                       :age,
                                        :email,
                                        :phone_number,
                                        location_attributes: [

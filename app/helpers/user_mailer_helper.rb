@@ -22,7 +22,7 @@ module UserMailerHelper
 
     begin
       # Send a transactional email
-      result = @send_email.send_transac_email(@mail_letter)
+      # result = @send_email.send_transac_email(@mail_letter)
 
       # logger.debug "#{'=' * 110 }"
       # logger.debug "Result: \n#{result}"

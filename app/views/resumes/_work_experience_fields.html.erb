@@ -1,0 +1,38 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <div class="mb-3">
+    <%= f.label :job_title, t('.job_title'), class: "form-label fw-bolder" %>
+    <%= f.text_field :job_title, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :company, t('.company'), class: "form-label fw-bolder" %>
+    <%= f.text_field :company , class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :country_of_work, t('.country_of_work'), class: "form-label fw-bolder" %>
+    <%= f.text_field :country_of_work , class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :city_or_state_of_work, t('.city_or_state_of_work'), class: "form-label fw-bolder" %>
+    <%= f.text_field :city_or_state_of_work , class: "form-control" %>
+  </div>
+
+  <p class="fw-bolder mb-1"><%= t('.time_period') %></p>
+  <div class="form-check">
+    <%= f.check_box :i_currently_work_here, class: "form-check-input" %>
+    <%= f.label :i_currently_work_here, t('.i_currently_work_here'), class: "form-check-label" %>
+  </div>
+
+  <div class="field" style="display:flex">
+    <%= f.label :from, t('.from'), class: "form-label fw-bolder me-2" %>
+    <%= f.date_select :from, { start_year: 1990, end_year: Time.now.year, order: [:month, :year], prompt: { month: t('.month'), year: t('.year') } }, { class: "date-select form-control pe-2 me-3 mb-2" } %>
+  </div>
+  <div class="field" style="display:flex">
+    <%= f.label :to, t('.to'), class: "form-label fw-bolder me-2" %>
+    <%= f.date_select :to, { start_year: 1990, end_year: Time.now.year, order: [:month, :year], prompt: { month: t('.month'), year: t('.year') } }, { class: "date-select form-control pe-2 me-3 mb-2" } %>
+  </div>
+
+  <%= link_to t('.remove_work_experience'), '#', class: 'btn btn-danger', data: { action: 'nested-form#remove' } %>
+  <!-- <button type="button" data-action="nested-form#remove">Remove work experience</button> -->
+
+  <%= f.hidden_field :_destroy %>
+</div>

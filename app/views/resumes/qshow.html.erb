@@ -1,0 +1,58 @@
+<div class="card mb-3">
+    <div class="card-header">
+        <h2 class="mb-0"><%= @resume.headline %></h2>
+    </div>
+    <div class="card-body">
+
+        <% if @resume.avatar.attached? %>
+            <%#= image_tag(@job_seeker.avatar_thumbnail) %>
+            <%= image_tag @resume.avatar_thumbnail, width: 250, class: "resume-image img-thumbnail m-2" %>
+        <% else %>
+            <%= image_tag "jobseeker-default.png", width: 250, class: "resume-image img-thumbnail m-2" %>
+        <% end %>
+
+        <p><%= t('.first_name')%>: <%= @resume.first_name %></p>
+        <p><%= t('.last_name')%>: <%= @resume.last_name %></p>
+
+        <p><%= t('.country_of_residence')%>: <%= @resume.country_of_residence %></p>
+        <p><%= t('.city_or_state_of_residence')%>: <%= @resume.city_or_state_of_residence %></p>
+        <p><%= t('.relocation')%>: <%= @resume.relocation %></p>
+
+        <p><%= t('.email')%>: <%= @resume.email %></p>
+        <p><%= t('.phone_number')%>: <%= @resume.phone_number %></p>
+
+        <hr/>
+        <% @resume.work_experiences.each do |experience| %>
+            <p><%= t('.job_title')%>: <%= experience.job_title %></p>
+            <p><%= t('.company')%>: <%= experience.company %></p>
+            <p><%= t('.country_of_work')%>: <%= experience.country_of_work %></p>
+            <p><%= t('.city_or_state_of_work')%>: <%= experience.city_or_state_of_work %></p>
+            <p><%= t('.i_currently_work_here')%>: <%= experience.i_currently_work_here %></p>
+            <p><%= t('.from')%>: <%= experience.from %></p>
+            <p><%= t('.to')%>: <%= experience.to %></p>
+        <% end %>
+
+        <hr/>
+        <% @resume.educations.each do |education| %>
+            <p><%= t('.level_of_education')%>: <%= education.level_of_education %></p>
+            <p><%= t('.field_of_study')%>: <%= education.field_of_study %></p>
+            <p><%= t('.school_name')%>: <%= education.school_name %></p>
+            <p><%= t('.country')%>: <%= education.country %></p>
+            <p><%= t('.city_or_state')%>: <%= education.city_or_state %></p>
+            <p><%= t('.currently_enrolled')%>: <%= education.currently_enrolled %></p>
+            <p><%= t('.from')%>: <%= education.from %></p>
+            <p><%= t('.to')%>: <%= education.to %></p>
+        <% end %>
+
+        <hr/>
+        <p>
+          <%= t('.skills')%>:
+          <% @resume.skills.each do |skill| %>
+            <%= link_to skill.name, resumes_skill_path(id: skill) %>
+          <% end %>
+        </p>
+        <%= link_to t('.edit_resume'), edit_resume_path, class: "btn btn-primary" %>
+    </div>
+</div>
+</div>
+

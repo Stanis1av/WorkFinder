@@ -4,15 +4,20 @@ class CreateResumes < ActiveRecord::Migration[6.1]
       # About me
       t.string :first_name
       t.string :last_name
-      t.string :phone_number
+      t.integer :age
       t.string :headline
       # t.text :summary
 
       # # Location
       t.string :country_of_residence
-      t.string :street_address_residence
       t.string :city_or_state_of_residence
+      # t.string :street_address_residence
       t.boolean :relocation
+      t.boolean :remote
+
+      # Contact Information
+      t.string :email
+      t.string :phone_number
 
       # # Education
       # # t.string :level_of_education

@@ -6,9 +6,12 @@ class CreateEducations < ActiveRecord::Migration[6.1]
       t.string :school_name
       t.string :country
       t.string :city_or_state
-      t.string :time_period
+      t.boolean :currently_enrolled
+      t.datetime :from
+      t.datetime :to
 
-      t.references :job_seeker, null: false, foreign_key: true
+      #t.references :job_seeker, null: false, foreign_key: true
+      t.references :resume, null: false, foreign_key: true
 
       t.timestamps
     end

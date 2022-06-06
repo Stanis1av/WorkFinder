@@ -5,6 +5,7 @@ class CreateJobSeekers < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :email
       t.string :phone_number
+      t.integer :age
 
       t.references :user, null: false, foreign_key: true
 

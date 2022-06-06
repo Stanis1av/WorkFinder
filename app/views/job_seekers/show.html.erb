@@ -1,3 +1,6 @@
+<div class="row">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col align-self-center col-lg-6 col-md-6">
 <div class="card mb-3">
     <div class="card-body">
         <%= link_to t('.add_new_resume'), new_resume_path, class: "btn btn-primary btn-large" %>
@@ -5,23 +8,35 @@
 </div>
 <div class="card mb-3">
     <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
 
-        <% if @job_seeker.avatar.attached? %>
-            <%= image_tag @job_seeker.avatar_thumbnail, class: "img-thumbnail avatar-user-profile m-2" %>
-        <% else %>
-            <%= embedded_svg("profile-logo", class: "img-thumbnail avatar-user-profile m-2", alt: "job_seeker-logo") %>
-        <% end %>
+            <% if @job_seeker.avatar.attached? %>
+                <%= image_tag @job_seeker.avatar_thumbnail, width: 200, class: "img-thumbnail avatar-user-profile m-2" %>
+            <% else %>
+                <%= image_tag "logos/jobseeker-default.svg", width: 200, class: "img-thumbnail avatar-user-profile m-2", alt: "jobseeker-default" %>
+            <% end %>
 
-        <p><%= t('.first_name') %>: <%= @job_seeker.first_name %></p>
-        <p><%= t('.last_name') %>: <%= @job_seeker.last_name %></p>
-        <p><%= t('.email') %>: <%= @job_seeker.email %></p>
-        <p><%= t('.phone_number') %>: <%= @job_seeker.phone_number %></p>
-        <hr/>
-        <p><%= t('.country_of_residence') %>: <%= @job_seeker.location.country_of_residence %></p>
-        <p><%= t('.city_or_state_of_residence') %>: <%= @job_seeker.location.city_or_state_of_residence %></p>
-        <p><%= t('.street_address_residence') %>: <%= @job_seeker.location.street_address_residence %></p>
-        <p><%= t('.relocation') %>: <%= @job_seeker.location.relocation %></p>
+            </div>
+            <div class="col-lg-8 col-md-7">
+               <h4><%= @job_seeker.first_name %> <%= @job_seeker.last_name %></h4>
 
-        <%= link_to t('.edit_details'), edit_job_seeker_path, class: "btn btn-primary" %>
+                <p><%= t('.age') %>: <%= @job_seeker.age %></p>
+                <p><%= t('.email') %>: <%= @job_seeker.email %></p>
+                <p><%= t('.phone_number') %>: <%= @job_seeker.phone_number %></p>
+                <hr/>
+                <p><%= t('.address') %>: <%= @job_seeker.location.country_of_residence %>, <%= @job_seeker.location.city_or_state_of_residence %></p>
+
+
+                <%= link_to t('.edit_details'), edit_job_seeker_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+
+
+
     </div>
+</div>
+
+</div>
+<div class="col-lg-3 col-md-3"></div>
 </div>

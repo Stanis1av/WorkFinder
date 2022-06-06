@@ -1,2 +1,17 @@
-<h1><%= t('.resumes_with_these_skill')%>: <%= @skill.name %></h1>
-<%= render @skill.resumes %>
+<div class="row">
+    <div class="col-lg-1 col-md-1 ml-auto mr-auto">
+
+    </div>
+    <div class="col-lg-7 col-md-6 ml-auto mr-auto">
+
+        <h1><%= t('.resumes_with_these_skill')%>: <%= @skill.name %></h1>
+
+        <br/>
+        <section id="resumes">
+            <%= render @skill.resumes %>
+        </section>
+            </div>
+
+    <div class="col-lg-4 col-md-4 ml-auto mr-auto">
+    </div>
+</div>

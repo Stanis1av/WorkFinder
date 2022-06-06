@@ -4,6 +4,7 @@ en:
       add_new_resume: Add a new resume
       first_name: First name
       last_name: Last ame
+      age: Age
       email: Email
       phone_number: Phone number
 
@@ -18,8 +19,12 @@ en:
       edit_details: Edit details
 
     edit:
+      upload-photo: 📷 Upload a photo
+      upload-photo-later: " You can also do this later"
+
       first_name: First name
-      last_name: Last ame
+      last_name: Last name
+      age: Age
       email: Email
       phone_number: Phone number
 

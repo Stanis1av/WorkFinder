@@ -15,6 +15,8 @@ class ResumesController < ApplicationController
   def new
     current_job_seeker
     @resume = Resume.new
+    # @resume.work_experiences.build
+    # @resume.educations.build
   end
 
   def create
@@ -40,6 +42,14 @@ class ResumesController < ApplicationController
       redirect_to resume_path(id: @resume.id), notice: "Резюмe успешно обновлено"
     else
       render action: "index", alert: "Обновление не удалось"
+    end
+  end
+
+  def destroy
+    if @resume.destroy
+      redirect_to resumes_path, notice: "Успешно удалено!"
+    else
+      render action: 'show', alert: "Не удалось удалить объект"
     end
   end
 
@@ -78,15 +88,39 @@ class ResumesController < ApplicationController
   end
 
   def resume_params
-    params.require(:resume).permit( :headline,
-                                    :avatar,
+    params.require(:resume).permit( :avatar,
                                     :first_name,
                                     :last_name,
+                                    :age,
+                                    :headline,
+                                    :email,
                                     :phone_number,
                                     :country_of_residence,
                                     :city_or_state_of_residence,
-                                    :street_address_residence,
                                     :relocation,
-                                    :skill_list)
+                                    :remote,
+                                    :skill_list,
+                                    work_experiences_attributes: [
+                                      :id,
+                                      :job_title,
+                                      :description,
+                                      :company,
+                                      :country_of_work,
+                                      :city_or_state_of_work,
+                                      :i_currently_work_here,
+                                      :from,
+                                      :to,
+                                      :_destroy],
+                                    educations_attributes: [
+                                      :id,
+                                      :level_of_education,
+                                      :field_of_study,
+                                      :school_name,
+                                      :country,
+                                      :city_or_state,
+                                      :currently_enrolled,
+                                      :from,
+                                      :to,
+                                      :_destroy])
   end
 end

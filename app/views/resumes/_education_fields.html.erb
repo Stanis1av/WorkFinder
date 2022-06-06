@@ -1,0 +1,43 @@
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+
+    <div class="mb-3">
+        <%= f.label :level_of_education, t('.level_of_education'), class: "form-label fw-bolder" %>
+        <%= f.text_field :level_of_education, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.label :field_of_study, t('.field_of_study'), class: "form-label fw-bolder" %>
+        <%= f.text_field :field_of_study , class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.label :school_name, t('.school_name'), class: "form-label fw-bolder" %>
+        <%= f.text_field :school_name , class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.label :country, t('.country'), class: "form-label fw-bolder" %>
+        <%= f.text_field :country , class: "form-control" %>
+    </div>
+    <div class="mb-3">
+        <%= f.label :city_or_state, t('.city_or_state'), class: "form-label fw-bolder" %>
+        <%= f.text_field :city_or_state , class: "form-control" %>
+    </div>
+
+    <p class="fw-bolder mb-1"><%= t('.time_period') %></p>
+    <div class="form-check">
+        <%= f.check_box :currently_enrolled, class: "form-check-input" %>
+        <%= f.label :currently_enrolled, t('.currently_enrolled'), class: "form-check-label" %>
+    </div>
+
+    <div class="field" style="display:flex">
+        <%= f.label :from, t('.from'), class: "form-label fw-bolder me-2" %>
+        <%= f.date_select :from, { start_year: 1990, end_year: Time.now.year, order: [:month, :year], prompt: { month: t('.month'), year: t('.year') } }, { class: "date-select form-control pe-2 me-3 mb-2" } %>
+    </div>
+    <div class="field" style="display:flex">
+        <%= f.label :to, t('.to'), class: "form-label fw-bolder me-2" %>
+        <%= f.date_select :to, { start_year: 1990, end_year: Time.now.year, order: [:month, :year], prompt: { month: t('.month'), year: t('.year') } }, { class: "date-select form-control pe-2 me-3 mb-2" } %>
+    </div>
+
+    <%= link_to t('.remove_education'), '#', class: 'btn btn-danger', data: { action: 'nested-form#remove' } %>
+    <!-- <button type="button" data-action="nested-form#remove">Remove education</button> -->
+
+    <%= f.hidden_field :_destroy %>
+</div>

@@ -188,6 +188,9 @@ GEM
       addressable (~> 2.3, >= 2.3.0)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -224,6 +227,8 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    wicked (1.4.0)
+      railties (>= 3.0.7)
     zeitwerk (2.5.4)
 
 PLATFORMS
@@ -247,12 +252,14 @@ DEPENDENCIES
   roadie (~> 4.0)
   sass-rails (>= 6)
   sib-api-v3-sdk
+  simple_form
   spring
   turbo-rails
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
+  wicked
 
 RUBY VERSION
    ruby 3.0.2p107

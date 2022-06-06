@@ -1,0 +1,22 @@
+<hr/><!-- Education -->
+<div data-controller="nested-form" data-nested-form-wrapper-selector-value=".nested-form-wrapper">
+    <p class="fw-lighter fs-4 mb-1"><%= t('.education') %></p>
+
+    <template data-nested-form-target="template">
+    <%= f.fields_for :educations, Education.new, child_index: 'NEW_RECORD' do |education_field| %>
+
+        <%= render "education_fields", f: education_field %>
+
+    <% end %>
+    </template>
+
+    <%= f.fields_for :educations do |education_field| %>
+        <%= render "education_fields", f: education_field %>
+    <% end %>
+
+    <!-- Inserted elements will be injected before that target. -->
+    <div data-nested-form-target="target"></div>
+
+    <%= link_to t('.add_education'), '#', class: 'btn btn-primary', data: { action: 'nested-form#add' } %>
+    <!-- <button type="button" data-action="nested-form#add">Add education</button> -->
+</div>

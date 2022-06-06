@@ -1,33 +1,156 @@
-<div class="card mb-3">
-    <div class="card-header">
-        <h2 class="mb-0"><%= @resume.headline %></h2>
-    </div>
-    <div class="card-body">
+<div class="page-content">
+  <div class="container container-lg container-md container-sm">
+    <div class="cover shadow-lg bg-white">
+      <div class="cover-bg p-4 p-lg-5 text-white">
+        <div class="row">
 
-        <% if @resume.avatar.attached? %>
-            <%#= image_tag(@job_seeker.avatar_thumbnail) %>
-            <%= image_tag @resume.avatar_thumbnail, class: "img-thumbnail avatar-user-profile m-2" %>
-        <% else %>
-            <%= embedded_svg("profile-logo", class: "img-thumbnail avatar-user-profile m-2", alt: "job_seeker-logo") %>
-        <% end %>
+          <div class="col-lg-4 col-md-5">
+            <div class="avatar hover-effect bg-white shadow-sm p-2">
 
-        <p><%= t('.first_name')%>: <%= @resume.first_name %></p>
-        <p><%= t('.last_name')%>: <%= @resume.last_name %></p>
-        <p><%= t('.phone_number')%>: <%= @resume.phone_number %></p>
-        <hr/>
-        <p><%= t('.country_of_residence')%>: <%= @resume.country_of_residence %></p>
-        <p><%= t('.city_or_state_of_residence')%>: <%= @resume.city_or_state_of_residence %></p>
-        <p><%= t('.street_address_residence')%>: <%= @resume.street_address_residence %></p>
-        <p><%= t('.relocation')%>: <%= @resume.relocation %></p>
-        <hr/>
-        <p>
-          <%= t('.skills')%>:
-          <% @resume.skills.each do |skill| %>
-            <%= link_to skill.name, resumes_skill_path(id: skill) %>
+              <% if @resume.avatar.attached? %>
+                  <%#= image_tag(@job_seeker.avatar_thumbnail) %>
+                  <%= image_tag @resume.avatar_thumbnail, width: 200, class: "" %>
+              <% else %>
+                  <%= image_tag "jobseeker-default.png", width: 200, class: "" %>
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="col-lg-8 col-md-7 text-center text-md-start">
+
+            <h2 class="h1 mt-2" data-aos="fade-left" data-aos-delay="0"><%= "#{@resume.first_name}" %> <%= "#{@resume.last_name}" %></h2>
+
+            <p data-aos="fade-left" data-aos-delay="100" class="fs-4"><%= @resume.headline %></p>
+
+            <div class="d-print-none" data-aos="fade-left" data-aos-delay="200">
+              <!-- <a class="btn btn-light text-dark shadow-sm mt-1 me-1" href="right-resume.pdf" target="_blank">Download CV</a> -->
+              <!-- <a class="btn btn-success shadow-sm mt-1" href="#">Hire Me</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-section pt-5 px-4 px-lg-5 mt-1">
+        <div class="row">
+
+          <h2 class="h3 mb-3"><%= t('.about_me') %></h2>
+
+          <!-- Personal Information -->
+          <p class="fw-normal fs-5 mb-2"><%= t('.personal_information') %></p>
+
+          <div class="col-sm-4">
+            <p class="fw-light mb-0"><%= t('.age') %></p>
+          </div>
+          <div class="col-sm-8">
+            <p><%= @resume.age %></p>
+          </div>
+
+          <div class="col-sm-4">
+            <p class="fw-light mb-0"><%= t('.current_location') %></p>
+          </div>
+          <div class="col-sm-8">
+            <p>
+              <%= @resume.country_of_residence %>, <%= @resume.city_or_state_of_residence %>
+            </p>
+          </div>
+
+          <div class="col-sm-4">
+            <p class="fw-light mb-0"><%= t('.relocation') %></p>
+          </div>
+          <div class="col-sm-8">
+            <p><%= is_relocation(@resume.relocation) %></p>
+          </div>
+
+          <div class="col-sm-4">
+            <p class="fw-light mb-0"><%= t('.remote') %></p>
+          </div>
+          <div class="col-sm-8">
+            <p><%= is_remote(@resume.remote) %></p>
+          </div>
+
+          <!-- Contact Information -->
+          <p class="fw-normal fs-5 mb-2"><%= t('.contact_information') %></p>
+
+          <div class="col-sm-4">
+            <p class="fw-light mb-0"><%= t('.email') %></p>
+          </div>
+          <div class="col-sm-8">
+            <p><%= @resume.email %></p>
+          </div>
+
+          <div class="col-sm-4">
+            <p class="fw-light mb-0"><%= t('.phone_number') %></p>
+          </div>
+          <div class="col-sm-8">
+            <p><%= @resume.phone_number %></p>
+          </div>
+
+        </div>
+      </div>
+
+      <hr class="d-print-none"/>
+
+      <div class="skills-section px-3 px-lg-4">
+
+        <h2 class="h3 mb-3"><%= t('.skills')%></h2>
+
+        <div class="row">
+          <p>
+            <% @resume.skills.each do |skill| %>
+              <%= link_to skill.name, resumes_skill_path(id: skill), class: "btn btn-primary" %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+      <hr class="d-print-none"/>
+
+      <div class="work-experience-section px-3 px-lg-4">
+        <h2 class="h3 mb-4"><%=t('.work_experience') %></h2>
+        <div class="timeline">
+
+          <% @resume.work_experiences.each do |experience| %>
+          <div class="timeline-card timeline-card-primary card shadow-sm">
+            <div class="card-body">
+              <div class="h5 mb-1"><%= experience.job_title %> <span class="text-muted h6"><%=t('.at') %> <%= experience.company %></span></div>
+              <div class="text-muted text-small mb-2"><%= "#{I18n.l(experience.from, format: "%B")}, #{experience.to.year}" %> - <%= "#{I18n.l(experience.to, format: "%B")}, #{experience.from.year}" %> (<%= experience.country_of_work %>, <%= experience.city_or_state_of_work %>)</div>
+              <div>Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</div>
+            </div>
+          </div>
           <% end %>
-        </p>
-        <%= link_to t('.edit_resume'), edit_resume_path, class: "btn btn-primary" %>
+
+        </div>
+      </div>
+
+    <hr class="d-print-none"/>
+
+    <div class="page-break"></div>
+      <div class="education-section px-3 px-lg-4 pb-4">
+        <h2 class="h3 mb-4"><%=t('.education') %></h2>
+        <div class="timeline">
+
+          <% @resume.educations.each do |education| %>
+          <div class="timeline-card timeline-card-success card shadow-sm">
+            <div class="card-body">
+              <div class="h5 mb-1"><%= education.level_of_education %><span class="inline-separator"> • </span><%= education.field_of_study %> <span class="text-muted h6"><%=t('.from') %> <%= education.school_name %></span></div>
+
+
+
+
+              <div class="text-muted text-small mb-2"><%= education.from.year %> - <%= education.to.year %> (<%= education.country %>, <%= education.city_or_state %>)</div>
+            </div>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+      <%= link_to t('.edit_resume'), edit_resume_path, class: "btn btn-primary m-3 ms-5" %>
+
+      <%= link_to t('.confirm_resume_remove'), resume_path, method: :delete, title: "", class: "btn btn-danger", data: { confirm: 'Вы действительно хотите удалить это резюме?' } %>
     </div>
+  </div>
 </div>
-</div>
+
+<br/>
+<br/>
 

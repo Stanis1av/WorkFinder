@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resource :company, path: 'company_profile', only: [:edit, :update, :show]
 
     resources :resumes
+    # FORM WIZARD
+      resources :steps, only: [:show, :update, :create], controller: 'steps_controllers/resume_steps'
+
+
     resources :vacancies
 
     get '/resumes/skill/:id', to: 'resume_skills#show', as: 'resumes_skill'

@@ -1,6 +1,6 @@
 module ApplicationHelper
   def embedded_svg(icon_name, options={})
-    file = File.read(Rails.root.join('app', 'assets', 'images', 'navbar', "#{icon_name}.svg"))
+    file = File.read(Rails.root.join('app', 'assets', 'images', 'logos', "#{icon_name}.svg"))
     doc = Nokogiri::HTML::DocumentFragment.parse file
     svg = doc.at_css 'svg'
 
@@ -23,4 +23,5 @@ module ApplicationHelper
   def is_company?
     current_user.present? && current_user.role == 'company'
   end
+
 end

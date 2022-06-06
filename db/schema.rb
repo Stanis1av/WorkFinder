@@ -60,11 +60,13 @@ ActiveRecord::Schema.define(version: 2022_03_27_230616) do
     t.string "school_name"
     t.string "country"
     t.string "city_or_state"
-    t.string "time_period"
-    t.bigint "job_seeker_id", null: false
+    t.boolean "currently_enrolled"
+    t.datetime "from"
+    t.datetime "to"
+    t.bigint "resume_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_seeker_id"], name: "index_educations_on_job_seeker_id"
+    t.index ["resume_id"], name: "index_educations_on_resume_id"
   end
 
   create_table "job_seekers", force: :cascade do |t|
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 2022_03_27_230616) do
     t.string "last_name"
     t.string "email"
     t.string "phone_number"
+    t.integer "age"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -80,9 +83,7 @@ ActiveRecord::Schema.define(version: 2022_03_27_230616) do
 
   create_table "locations", force: :cascade do |t|
     t.string "country_of_residence"
-    t.string "street_address_residence"
     t.string "city_or_state_of_residence"
-    t.boolean "relocation"
     t.bigint "job_seeker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -101,12 +102,14 @@ ActiveRecord::Schema.define(version: 2022_03_27_230616) do
   create_table "resumes", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "phone_number"
+    t.integer "age"
     t.string "headline"
     t.string "country_of_residence"
-    t.string "street_address_residence"
     t.string "city_or_state_of_residence"
     t.boolean "relocation"
+    t.boolean "remote"
+    t.string "email"
+    t.string "phone_number"
     t.bigint "job_seeker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -168,17 +171,20 @@ ActiveRecord::Schema.define(version: 2022_03_27_230616) do
     t.string "company"
     t.string "country_of_work"
     t.string "city_or_state_of_work"
-    t.string "time_period"
-    t.bigint "job_seeker_id", null: false
+    t.boolean "i_currently_work_here"
+    t.datetime "from"
+    t.datetime "to"
+    t.text "description"
+    t.bigint "resume_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["job_seeker_id"], name: "index_work_experiences_on_job_seeker_id"
+    t.index ["resume_id"], name: "index_work_experiences_on_resume_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "companies", "users"
-  add_foreign_key "educations", "job_seekers"
+  add_foreign_key "educations", "resumes"
   add_foreign_key "job_seekers", "users"
   add_foreign_key "locations", "job_seekers"
   add_foreign_key "resume_skills", "resumes"
@@ -187,5 +193,5 @@ ActiveRecord::Schema.define(version: 2022_03_27_230616) do
   add_foreign_key "vacancies", "companies"
   add_foreign_key "vacancy_skills", "skills"
   add_foreign_key "vacancy_skills", "vacancies"
-  add_foreign_key "work_experiences", "job_seekers"
+  add_foreign_key "work_experiences", "resumes"
 end
