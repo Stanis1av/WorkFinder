@@ -96,3 +96,16 @@ ru:
     # omniauth_callbacks:
     #   failure: Вы не можете войти в систему с учётной записью из %{kind}, так как %{reason}.
     #   success: Вход в систему выполнен с учётной записью из %{kind}.
+
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: Подтвердите свой аккаунт
+      email_changed:
+        subject: Емаил адрес изменён
+      password_change:
+        subject: Пароль изменён
+      reset_password_instructions:
+        subject: Сброс пароля
+      unlock_instructions:
+        subject: Ваш аккаунт заблокирован
