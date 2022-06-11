@@ -1,17 +1,20 @@
-en:
-  companies:
+de:
+  employers:
     show:
       add_new_vacancy: Add a new vacancy
       name: Company name
-      about_company: About company
+      about_employer: About company
       website: Your website
       email: Email
 
       edit_details: Edit details
 
     edit:
-      name: Company name
-      about_company: About company
+      upload-photo: 📷 Upload a photo
+      upload-photo-later: " You can also do this later"
+
+      name: Your company's name
+      about_employer: About company
       website: Your website
       email: Email
 

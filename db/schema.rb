@@ -53,17 +53,6 @@ ActiveRecord::Schema.define(version: 2022_06_11_051451) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.text "about_company"
-    t.string "website"
-    t.string "email"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
-  end
-
   create_table "educations", force: :cascade do |t|
     t.string "level_of_education"
     t.string "field_of_study"
@@ -77,6 +66,17 @@ ActiveRecord::Schema.define(version: 2022_06_11_051451) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["resume_id"], name: "index_educations_on_resume_id"
+  end
+
+  create_table "employers", force: :cascade do |t|
+    t.string "name"
+    t.text "about_employer"
+    t.string "website"
+    t.string "email"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_employers_on_user_id"
   end
 
   create_table "job_seekers", force: :cascade do |t|
@@ -161,10 +161,10 @@ ActiveRecord::Schema.define(version: 2022_06_11_051451) do
     t.string "type_of_job"
     t.string "salary"
     t.string "description"
-    t.bigint "company_id", null: false
+    t.bigint "employer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_vacancies_on_company_id"
+    t.index ["employer_id"], name: "index_vacancies_on_employer_id"
   end
 
   create_table "vacancy_skills", force: :cascade do |t|
@@ -193,14 +193,14 @@ ActiveRecord::Schema.define(version: 2022_06_11_051451) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "companies", "users"
   add_foreign_key "educations", "resumes"
+  add_foreign_key "employers", "users"
   add_foreign_key "job_seekers", "users"
   add_foreign_key "locations", "job_seekers"
   add_foreign_key "resume_skills", "resumes"
   add_foreign_key "resume_skills", "skills"
   add_foreign_key "resumes", "job_seekers"
-  add_foreign_key "vacancies", "companies"
+  add_foreign_key "vacancies", "employers"
   add_foreign_key "vacancy_skills", "skills"
   add_foreign_key "vacancy_skills", "vacancies"
   add_foreign_key "work_experiences", "resumes"

@@ -1,10 +1,10 @@
-class CompaniesController < ApplicationController
+class EmployersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_company, only: [:edit, :update, :show]
+  before_action :set_employer, only: [:edit, :update, :show]
   # before_action :authenticate_user!
 
   def show
-    if current_user.company != nil
+    if current_user.employer != nil
       # render the show screen
       render action: 'show'
     else
@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    if current_user.company != nil
+    if current_user.employer != nil
       # render the show screen
       render action: 'edit'
     else
@@ -22,9 +22,9 @@ class CompaniesController < ApplicationController
   end
 
   def update
-    if @company.valid?
-      @company.update(company_params)
-      redirect_to company_path, notice: 'Профиль успешно обновлён'
+    if @employer.valid?
+      @employer.update(employer_params)
+      redirect_to employer_path, notice: 'Профиль успешно обновлён'
     else
       render action: 'edit', alert: 'Не удалось обновить профиль'
     end
@@ -32,14 +32,14 @@ class CompaniesController < ApplicationController
 
   private
 
-  def set_company
-    @company = current_user.company
+  def set_employer
+    @employer = current_user.employer
   end
 
-  def company_params
-    params.require(:company).permit( :logo,
+  def employer_params
+    params.require(:employer).permit(:logo,
                                      :name,
-                                     :about_company,
+                                     :about_employer,
                                      :website,
                                      :email )
   end

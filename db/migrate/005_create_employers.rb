@@ -1,8 +1,8 @@
-class CreateCompanies < ActiveRecord::Migration[6.1]
+class CreateEmployers < ActiveRecord::Migration[6.1]
   def change
-    create_table :companies do |t|
+    create_table :employers do |t|
       t.string :name
-      t.text :about_company
+      t.text :about_employer
       t.string :website
       t.string :email
 

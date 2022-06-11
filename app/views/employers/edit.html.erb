@@ -1,0 +1,41 @@
+<div class="card mb-3">
+    <div class="card-body">
+        <%#= form_with model: @employer, local: true, url: company_path, method: :put do |f| %>
+        <%= simple_form_for(@employer, method: :put, url: employer_path) do |f| %>
+
+
+        <div class="image-upload" data-controller="photo-preview">
+            <% if @employer.logo.attached? %>
+                <%= image_tag @employer.logo, width: 200, class: "img-thumbnail company-logo-profile m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
+            <% else %>
+                <%= image_tag "logos/employer-default.svg", width: 200, class: "img-thumbnail company-logo-profile m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
+            <% end %>
+
+            <%= f.input :logo,
+                        input_html: { class: 'd-none', data: { action: "click->photo-preview#photo_input", photo_preview_target: "photoInput" } },
+                        label_html: { class: 'btn btn-outline-primary' },
+                        label: t('.upload-photo'),
+                        hint: t('.upload-photo-later') %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.label :name, t('.name'), class: "form-label" %>
+            <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :about_employer, t('.about_employer'), class: "form-label" %>
+            <%= f.text_area :about_employer, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :website, t('.website'), class: "form-label" %>
+            <%= f.text_field :website, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :email, t('.email'), class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+        </div>
+
+            <%= f.submit t('.enter'), class: "btn btn-primary", data: {turbo: "false"} %>
+        <% end %>
+    </div>
+</div>
