@@ -7,7 +7,7 @@
             <div class="card-header">
                 <h1 class="mb-0"><%= t('.vacancies') %></h1>
             </div>
-            <% if is_company? %>
+            <% if is_employer? %>
             <div class="card-body">
                 <%= link_to t('.add_new_vacancy'), new_vacancy_path, class: "btn btn-primary btn-large" %>
             </div>

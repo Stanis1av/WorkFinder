@@ -10,7 +10,7 @@ class CreateVacancies < ActiveRecord::Migration[6.1]
       t.string :salary
       t.string :description
 
-      t.references :company, null: false, foreign_key: true
+      t.references :employer, null: false, foreign_key: true
 
       t.timestamps
     end

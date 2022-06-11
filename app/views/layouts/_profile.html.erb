@@ -11,12 +11,12 @@
           <%= image_tag "logos/jobseeker-default.svg", width: 40, class: "rounded-circle profile-icon", alt: "jobseeker-default" %>
         <% end %>
 
-      <% elsif is_company? %>
+      <% elsif is_employer? %>
 
-        <% if current_user.company.logo.attached? %>
-          <%= image_tag company_logo(current_user.company, 40), class: "rounded-circle profile-icon", alt: "company-logo"%>
+        <% if current_user.employer.logo.attached? %>
+          <%= image_tag employer_logo(current_user.employer, 40), class: "rounded-circle profile-icon", alt: "employer-logo"%>
         <% else %>
-          <%= image_tag "logos/company-default.svg", width: 40, class: "rounded-circle profile-icon", alt: "company-default" %>
+          <%= image_tag "logos/employer-default.svg", width: 40, class: "rounded-circle profile-icon", alt: "employer-default" %>
         <% end %>
 
       <% end %>
@@ -25,9 +25,9 @@
       <% if is_job_seeker? %>
           <li><%= link_to t('.show_profile'), job_seeker_path, class: "dropdown-item" %></li>
           <li><%= link_to t('.edit_profile'), edit_job_seeker_path, class: "dropdown-item" %></li>
-        <% elsif is_company? %>
-          <li><%= link_to t('.show_profile'), company_path, class: "dropdown-item" %></li>
-          <li><%= link_to t('.edit_profile'), edit_company_path, class: "dropdown-item" %></li>
+        <% elsif is_employer? %>
+          <li><%= link_to t('.show_profile'), employer_path, class: "dropdown-item" %></li>
+          <li><%= link_to t('.edit_profile'), edit_employer_path, class: "dropdown-item" %></li>
 
         <% end %>
         <li><%= link_to t('.edit_account'), edit_user_registration_path, class: "dropdown-item" %></li>

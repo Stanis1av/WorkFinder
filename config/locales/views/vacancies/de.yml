@@ -4,6 +4,9 @@ de:
       vacancies: vacancies
       add_new_vacancy: Add a new vacancy
     new:
+      upload-photo: 📷 Upload a photo
+      upload-photo-later: " You can also do this later"
+
       new_vacancy: Create a new vacancy
       job_title: Job title
       company_name: Company name
@@ -29,6 +32,9 @@ de:
       skills: Skills
       read_more: Read more
     edit:
+      upload-photo: 📷 Upload a photo
+      upload-photo-later: " You can also do this later"
+
       edit_vacancy: Edit vacancy
       job_title: Job title
       company_name: Company name

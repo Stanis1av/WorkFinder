@@ -3,7 +3,7 @@ class User < ApplicationRecord
   after_create :create_a_profile_based_on_the_role
 
   has_one :job_seeker, dependent: :destroy
-  has_one :company, dependent: :destroy
+  has_one :employer, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   def role_checking
     if role.blank?
       errors.add(:base, 'Выберите роль пользователя')
-    elsif role != 'job_seeker' && role != 'company'
+    elsif role != 'job_seeker' && role != 'employer'
       errors.add(:base, 'Выберите корректную роль!')
       return false
     end
@@ -24,8 +24,9 @@ class User < ApplicationRecord
   def create_a_profile_based_on_the_role
     if role == 'job_seeker'
       JobSeeker.create(user_id: id)
-    elsif role == 'company'
-      Company.create(user_id: id)
+    elsif role == 'employer'
+      # Company.create(user_id: id)
+      Employer.create(user_id: id)
     end
   end
 

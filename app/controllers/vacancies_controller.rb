@@ -1,6 +1,6 @@
 class VacanciesController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :is_not_company?, except: :index
+  before_action :is_not_employer?, except: :index
   before_action :set_vacancy, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -13,13 +13,13 @@ class VacanciesController < ApplicationController
   end
 
   def new
-    current_company
+    current_employer
     @vacancy = Vacancy.new
   end
 
   def create
     @vacancy = Vacancy.create(vacancy_params)
-    @vacancy.company_id = current_user.company.id
+    @vacancy.employer_id = current_user.employer.id
     # debugger
     if @vacancy.valid?
       @vacancy.save
@@ -45,8 +45,8 @@ class VacanciesController < ApplicationController
 
   private
 
-  def current_company
-    @company = current_user.company
+  def current_employer
+    @employer = current_user.employer
   end
 
   def set_vacancy
@@ -54,12 +54,12 @@ class VacanciesController < ApplicationController
   end
 
   def is_the_owner
-    current_user.company.id == Vacancy.find(params[:id]).company_id
+    current_user.employer.id == Vacancy.find(params[:id]).employer_id
   end
 
-  def is_not_company?
-    if current_user.role != 'company'
-      redirect_to root_path, alert: "Вы не компания, доступ запрещен"
+  def is_not_employer?
+    if current_user.role != 'employer'
+      redirect_to root_path, alert: "Вы не работодатель, доступ запрещен"
     end
   end
 

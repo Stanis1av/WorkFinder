@@ -6,7 +6,7 @@
 
             <%#= form_with model: @vacancy, local: true do |f| %>
             <%#= form_with model: @vacancy, local: true, url: vacancy_path(@vacancy), method: :put do |form|  do |f| %>
-            <%= form_with model: @vacancy, local: true, url: vacancy_path, method: :put do |f| %>
+            <%= simple_form_for(@vacancy, method: :put, url: vacancy_path) do |f| %>
 
             <div class="card-header">
                 <div class="form-group">
@@ -17,16 +17,18 @@
             <div class="card-body">
 
 
-            <div class="field">
+            <div class="image-upload" data-controller="photo-preview">
                 <% if @vacancy.logo.attached? %>
-                    <%= image_tag @vacancy.logo_thumbnail, class: "img-thumbnail company-logo-profile m-2" %>
+                    <%= image_tag @vacancy.logo, width: 250, class: "vacancy-image img-thumbnail m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
                 <% else %>
-                    <%= embedded_svg("company-logo", class: "img-thumbnail company-logo-profile m-2", alt: "job_seeker-logo") %>
+                    <%= image_tag "employer-default.png", width: 250, class: "vacancy-image img-thumbnail m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
                 <% end %>
-            </div>
-            <div class="field">
-                <%= f.file_field :logo %>
-                <%#= f.button%>
+
+                <%= f.input :logo,
+                            input_html: { class: 'd-none', data: { action: "click->photo-preview#photo_input", photo_preview_target: "photoInput" } },
+                            label_html: { class: 'btn btn-outline-primary mb-2' },
+                            label: t('.upload-photo'),
+                            hint: t('.upload-photo-later') %>
             </div>
 
             <%#= render "shared/validation-messages", object: f.object %>

@@ -8,7 +8,7 @@
             <% if @vacancy.logo.attached? %>
                 <%= image_tag @vacancy.logo_thumbnail, class: "img-thumbnail company-logo-profile m-2" %>
             <% else %>
-                <%= embedded_svg("company-logo", class: "img-thumbnail company-logo-profile m-2", alt: "job_seeker-logo") %>
+                <%= image_tag "employer-default.png", width: 250, class: "vacancy-image img-thumbnail m-2", alt: "vacancy-default-logo" %>
             <% end %>
         </div>
 

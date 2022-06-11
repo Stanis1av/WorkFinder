@@ -8,11 +8,11 @@ Rails.application.routes.draw do
       }
 
     resource :job_seeker, path: 'jobseeker_profile', only: [:edit, :update, :show]
-    resource :company, path: 'company_profile', only: [:edit, :update, :show]
+    resource :employer, path: 'employer_profile', only: [:edit, :update, :show]
 
     resources :resumes
     # FORM WIZARD
-      resources :steps, only: [:show, :update, :create], controller: 'steps_controllers/resume_steps'
+      # resources :steps, only: [:show, :update, :create], controller: 'steps_controllers/resume_steps'
 
 
     resources :vacancies

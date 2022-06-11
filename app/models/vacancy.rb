@@ -1,5 +1,5 @@
 class Vacancy < ApplicationRecord
-  belongs_to :company
+  belongs_to :employer
 
   has_one_attached :logo
 

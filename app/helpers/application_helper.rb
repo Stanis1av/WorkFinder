@@ -13,15 +13,15 @@ module ApplicationHelper
     user.avatar.variant(resize: "#{size}x#{size}!")
   end
 
-  def company_logo (company, size = 40)
-    company.logo.variant(resize: "#{size}x#{size}!")
+  def employer_logo (employer, size = 40)
+    employer.logo.variant(resize: "#{size}x#{size}!")
   end
 
   def is_job_seeker?
     current_user.present? && current_user.role == 'job_seeker'
   end
-  def is_company?
-    current_user.present? && current_user.role == 'company'
+  def is_employer?
+    current_user.present? && current_user.role == 'employer'
   end
 
 end
