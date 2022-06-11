@@ -4,16 +4,20 @@
     <%= f.text_field :job_title, class: "form-control" %>
   </div>
   <div class="mb-3">
+    <%= f.label :description, t('.description'), class: "form-label fw-bolder" %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="mb-3">
     <%= f.label :company, t('.company'), class: "form-label fw-bolder" %>
-    <%= f.text_field :company , class: "form-control" %>
+    <%= f.text_field :company, class: "form-control" %>
   </div>
   <div class="mb-3">
     <%= f.label :country_of_work, t('.country_of_work'), class: "form-label fw-bolder" %>
-    <%= f.text_field :country_of_work , class: "form-control" %>
+    <%= f.text_field :country_of_work, class: "form-control" %>
   </div>
   <div class="mb-3">
     <%= f.label :city_or_state_of_work, t('.city_or_state_of_work'), class: "form-label fw-bolder" %>
-    <%= f.text_field :city_or_state_of_work , class: "form-control" %>
+    <%= f.text_field :city_or_state_of_work, class: "form-control" %>
   </div>
 
   <p class="fw-bolder mb-1"><%= t('.time_period') %></p>

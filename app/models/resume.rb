@@ -12,6 +12,8 @@ class Resume < ApplicationRecord
 
   has_many :skills, through: :resume_skills
 
+  has_rich_text :summary
+
   default_scope { order(created_at: :desc) }
 
   def avatar_thumbnail

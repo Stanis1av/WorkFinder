@@ -93,6 +93,7 @@ class ResumesController < ApplicationController
                                     :last_name,
                                     :age,
                                     :headline,
+                                    :summary,
                                     :email,
                                     :phone_number,
                                     :country_of_residence,

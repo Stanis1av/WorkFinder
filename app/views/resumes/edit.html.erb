@@ -47,6 +47,11 @@
                     <%= f.label :headline, t('.headline'), class: "form-label fw-bolder" %>
                     <%= f.text_field :headline, class: "form-control" %>
                 </div>
+                <div class="mb-3">
+                    <%= f.label :summary, t('.summary') %>
+                    <%= f.rich_text_area :summary %>
+                </div>
+                <hr/>
 
                 <!-- Location -->
                 <div class="mb-3">
