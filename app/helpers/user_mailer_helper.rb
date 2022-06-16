@@ -18,20 +18,21 @@ module UserMailerHelper
       "name": "FindWorker"
     }
 
-    logger.debug "@mail_letter: \n#{@mail_letter}"
+    #logger.debug "@mail_letter: \n#{@mail_letter}"
 
     begin
       # Send a transactional email
-      # result = @send_email.send_transac_email(@mail_letter)
+      result = @send_email.send_transac_email(@mail_letter)
 
       # logger.debug "#{'=' * 110 }"
       # logger.debug "Result: \n#{result}"
       # logger.debug "#{'=' * 110 }"
 
-      # return result
+      return result
 
     rescue SibApiV3Sdk::ApiError => e
       puts "Exception when calling TransactionalEmailsApi->send_transac_email: #{e}"
     end
   end
 end
+
