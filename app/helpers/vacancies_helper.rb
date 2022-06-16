@@ -84,6 +84,10 @@ module VacanciesHelper
 
   end
 
+  def employer_name
+    @employer.name.blank? ? @employer.id : @employer.name ;
+  end
+
   def vacancy_skill_list
     @vacancy.skills.collect do |skill|
             skill.name
