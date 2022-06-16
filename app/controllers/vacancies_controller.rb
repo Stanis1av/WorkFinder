@@ -1,6 +1,6 @@
 class VacanciesController < ApplicationController
   before_action :authenticate_user!, except: :index
-  before_action :is_not_employer?, except: :index
+  before_action :is_not_employer?, except: [:index, :show]
   before_action :set_vacancy, only: [:show, :edit, :update, :destroy]
 
   def show
