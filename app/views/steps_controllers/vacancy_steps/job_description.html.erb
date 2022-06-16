@@ -1,0 +1,24 @@
+<%= form_with model: @vacancy, url: wizard_path, method: :patch do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Опишите работу</legend>
+
+    <div class="mb-3">
+      <%= f.label :description, "Подробная информация о вакансии", class: "form-label fw-bolder" %>
+      <%= f.rich_text_area :description %>
+    </div>
+    <br/>
+
+    <div>
+      <%= link_to 'На предыдущий шаг', previous_wizard_path, class: "btn" %>
+      <%= f.submit 'Следующий шаг', class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

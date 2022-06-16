@@ -14,6 +14,7 @@ ru:
       location: Местоположение
       remote: Возможна ли работа удалённо
       type_of_job: Тип работы
+      work_experience: Опыт работы
       salary: Зарплата
       description: Описание, требовании, навыков, обязаностей
       skills: Навыки
@@ -21,13 +22,54 @@ ru:
     vacancy:
       posted: Размещено
       ago: назад
+
       job_title: Заголовок вакансии
       company_name: Имя компании
       country: Страна
       location: Местоположение
-      remote: Возможна ли работа удалённо
-      type_of_job: Тип работы
+
       salary: Зарплата
+
+      from: от
+      to: до
+
+      rub: руб.
+      usd: USD
+      eur: EUR
+
+      hour: в час
+      day: в день
+      week: в неделю
+      month: в месяц
+      year: в год
+
+      work_experience: Опыт работы
+      not_required: не требуется
+      f1_t3: От 1 года до 3 лет
+      f3_t6: От 3 до 6 лет
+      more_6: Более 6 лет
+
+      job_type: Что это за работа?
+      full_time: Полная занятость
+      part_time: Неполная занятость
+      temporary: Временная
+      contract: Контрактная
+      internship: Интернатура
+      commission: Коммисия
+
+      schedule_job: Каков график этой работы?
+      hour_8: 8-часовая смена
+      hour_10: 10-часовая смена
+      hour_12: 12-часовая смена
+      weekend_availability: Наличие выходных
+      monday_to_friday: С понедельника по пятницу
+      on_call: По вызову
+      holidays: Во время каникул
+      day_shift: Дневная смена
+      night_shift: Ночная смена
+      overtime: Сверхурочная работа
+      other: Другой
+
       description: Описание, требовании, навыков, обязаностей
       skills: Навыки
       read_more: Узнать больше
@@ -43,7 +85,8 @@ ru:
       remote: Возможна ли работа удалённо
       type_of_job: Тип работы
       salary: Зарплата
-      description: Описание, требовании, навыков, обязаностей
+      description: Подробная информация о вакансии
+      # Описание, требовании, навыков, обязаностей
       skills: Навыки
       edit: Редактировать резюме
     show:
@@ -54,7 +97,97 @@ ru:
       location: Местоположение
       remote: Возможна ли работа удалённо
       type_of_job: Тип работы
+
       salary: Зарплата
+
+      from: от
+      to: до
+
+      rub: руб.
+      usd: USD
+      eur: EUR
+
+      hour: в час
+      day: в день
+      week: в неделю
+      month: в месяц
+      year: в год
+
+      work_experience: Опыт работы
+      not_required: не требуется
+      f1_t3: от 1 года до 3 лет
+      f3_t6: от 3 до 6 лет
+      more_6: более 6 лет
+
+      job_type: Что это за работа?
+      full_time: Полная занятость
+      part_time: Неполная занятость
+      temporary: Временная
+      contract: Контрактная
+      internship: Интернатура
+      commission: Коммисия
+
+      schedule_job: Каков график этой работы?
+      hour_8: 8-часовая смена
+      hour_10: 10-часовая смена
+      hour_12: 12-часовая смена
+      weekend_availability: Наличие выходных
+      monday_to_friday: С понедельника по пятницу
+      on_call: По вызову
+      holidays: Во время каникул
+      day_shift: Дневная смена
+      night_shift: Ночная смена
+      overtime: Сверхурочная работа
+      other: Другой
+
       description: Описание, требовании, навыков, обязаностей
       skills: Навыки
       edit_vacancy: Редактировать вакансию
+  steps_controllers:
+    vacancy_steps:
+      job_details:
+        add_details: Добавьте детали
+
+        work_experience: Опыт работы
+        not_required: не требуется
+        f1_t3: От 1 года до 3 лет
+        f3_t6: От 3 до 6 лет
+        more_6: Более 6 лет
+
+        job_type: Что это за работа?
+        full_time: Полная занятость
+        part_time: Неполная занятость
+        temporary: Временная
+        contract: Контрактная
+        internship: Интернатура
+        commission: Коммисия
+
+        schedule_job: Каков график этой работы?
+        hour_8: 8-часовая смена
+        hour_10: 10-часовая смена
+        hour_12: 12-часовая смена
+        weekend_availability: Наличие выходных
+        monday_to_friday: С понедельника по пятницу
+        on_call: По вызову
+        holidays: Во время каникул
+        day_shift: Дневная смена
+        night_shift: Ночная смена
+        overtime: Сверхурочная работа
+        other: Другой
+
+        how_much_hire: Сколько человек вы хотите нанять на эту работу?
+
+        continue: Сохранить и продолжить
+        previous_step: Назад
+
+      compensation_details:
+        rub: руб.
+        usd: USD
+        eur: EUR
+
+        hour: в час
+        day: в день
+        week: в неделю
+        month: в месяц
+        year: в год
+

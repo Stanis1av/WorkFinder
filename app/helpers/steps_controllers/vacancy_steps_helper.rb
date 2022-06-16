@@ -1,0 +1,2 @@
+module StepsControllers::VacancyStepsHelper
+end

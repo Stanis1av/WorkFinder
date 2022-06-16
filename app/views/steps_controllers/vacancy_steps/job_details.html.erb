@@ -1,0 +1,42 @@
+<%= form_with model: @vacancy, url: wizard_path, method: :patch do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend><%= t('.add_details')%></legend>
+
+      <div class="mb-3">
+        <%= f.label :work_experience, t('.work_experience'), class: "form-label fw-bolder" %>
+        <%= f.collection_select :work_experience, Vacancy.work_experiences.map{|we| [we.first, we.second]}, :first, :second, {}, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :job_type, t('.job_type'), class: "form-label fw-bolder" %>
+        <%= f.collection_select :job_type, Vacancy.job_types.map{|tp| [tp.first, tp.second]}, :first, :second, {}, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+          <%= f.label :schedule_job, t('.schedule_job'), class: "form-label fw-bolder" %>
+          <%= f.collection_select :schedule_job, Vacancy.schedules.map{|s| [s.first, s.second]}, :first, :second, {}, class: "form-control" %>
+      </div>
+
+      <hr/>
+      <p class="fw-light fs-5 mb-2">Укажите ключевые навыки вакансии</p>
+      <div class="form-group">
+          <%= f.label :skill_list, t('.skills'), class: "form-label fw-bolder" %><br />
+          <%= f.text_field :skill_list, class: "form-control", value: vacancy_skill_list %>
+      </div>
+
+    <br/>
+
+    <div>
+      <%= link_to t('.previous_step'), previous_wizard_path, class: "btn" %>
+      <%= f.submit t('.continue'), class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

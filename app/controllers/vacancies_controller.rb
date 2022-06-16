@@ -15,17 +15,25 @@ class VacanciesController < ApplicationController
   def new
     current_employer
     @vacancy = Vacancy.new
+
+    Rails.cache.fetch("#{session.id}_vacancy") { Hash.new }  # Only non-vanilla-Rails code here
+    # debugger
+    redirect_to build_vacancy_path(@vacancy, Vacancy.form_steps.keys.first) # Only non-vanilla-Rails code here
   end
 
   def create
-    @vacancy = Vacancy.create(vacancy_params)
+
+    @vacancy = Vacancy.new(vacancy_params)
     @vacancy.employer_id = current_user.employer.id
-    # debugger
-    if @vacancy.valid?
-      @vacancy.save
-      redirect_to vacancy_path(id: @vacancy.id), notice: "Резюмe успешно создано"
-    else
-      render action: "new", alert: "Создание вакансии не удалось"
+
+    respond_to do |format|
+      if @vacancy.save
+        format.html { redirect_to vacancy_path(@vacancy.id), notice: "Резюмe успешно создано." }
+        format.json { render :show, status: :created, location: @vacancy }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @vacancy.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -40,6 +48,16 @@ class VacanciesController < ApplicationController
       redirect_to vacancy_path(id: @vacancy.id), notice: "Вакансия успешно обновлено"
     else
       render action: "edit", alert: "Обновление не удалось"
+    end
+
+  end
+
+  # DELETE /houses/1 or /houses/1.json
+  def destroy
+    @vacancy.destroy
+    respond_to do |format|
+      format.html { redirect_to vacancies_url, notice: "House was successfully destroyed." }
+      format.json { head :no_content }
     end
   end
 
@@ -77,14 +95,27 @@ class VacanciesController < ApplicationController
 
   def vacancy_params
     params.require(:vacancy).permit(:job_title,
-                                    :logo,
                                     :company_name,
-                                    :location,
                                     :country,
-                                    :remote,
-                                    :type_of_job,
-                                    :salary,
+                                    :city_or_state,
+
+                                    :work_experience,
+                                    :job_type,
+                                    :schedule_job,
+
+                                    :from,
+                                    :to,
+                                    :currency,
+                                    :rate,
+
                                     :description,
+
+                                    :first_name,
+                                    :last_name,
+                                    :phone,
+                                    :email,
+
                                     :skill_list)
+
   end
 end

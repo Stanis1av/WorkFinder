@@ -1,77 +1,102 @@
-<div class="row">
-    <div class="col-md-8 mb-3">
-        <h2 class="mb-0"><%= t('.edit_vacancy') %></h2>
+<h2 class="mb-0"><%= t('.edit_vacancy') %></h2>
 
-        <div class="card">
-
-            <%#= form_with model: @vacancy, local: true do |f| %>
-            <%#= form_with model: @vacancy, local: true, url: vacancy_path(@vacancy), method: :put do |form|  do |f| %>
-            <%= simple_form_for(@vacancy, method: :put, url: vacancy_path) do |f| %>
-
-            <div class="card-header">
-                <div class="form-group">
-                    <%= f.label :job_title, t('.job_title') %>
-                    <%= f.text_field :job_title, class: "form-control" %>
-                </div>
-            </div>
-            <div class="card-body">
+<div class="shadow p-4 mb-5 bg-body rounded">
 
 
-            <div class="image-upload" data-controller="photo-preview">
-                <% if @vacancy.logo.attached? %>
-                    <%= image_tag @vacancy.logo, width: 250, class: "vacancy-image img-thumbnail m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
-                <% else %>
-                    <%= image_tag "employer-default.png", width: 250, class: "vacancy-image img-thumbnail m-2", id: "photo-preview", data: { photo_preview_target: "photoPreview" } %>
-                <% end %>
+    <%= simple_form_for(@vacancy, method: :put, url: vacancy_path) do |f| %>
 
-                <%= f.input :logo,
-                            input_html: { class: 'd-none', data: { action: "click->photo-preview#photo_input", photo_preview_target: "photoInput" } },
-                            label_html: { class: 'btn btn-outline-primary mb-2' },
-                            label: t('.upload-photo'),
-                            hint: t('.upload-photo-later') %>
-            </div>
-
-            <%#= render "shared/validation-messages", object: f.object %>
-            <div class="form-group">
-                <%= f.label :company_name, t('.company_name') %>
-                <%= f.text_field :company_name, class: "form-control" %>
-            </div>
-
-            <!-- Location -->
-            <div class="form-group">
-                <%= f.label :country, t('.country') %>
-                <%= f.text_field :country, class: "form-control" %>
-            </div>
-            <div class="form-group">
-                <%= f.label :location, t('.location') %>
-                <%= f.text_field :location, class: "form-control" %>
-            </div>
-            <div class="form-group">
-                <%= f.label :remote, t('.remote') %>
-                <%= f.text_field :remote?, class: "form-control" %>
-            </div>
-            <div class="form-group">
-                <%= f.label :type_of_job, t('.type_of_job') %>
-                <%= f.text_field :type_of_job, class: "form-control" %>
-            </div>
-            <div class="form-group">
-                <%= f.label :salary, t('.salary') %>
-                <%= f.text_field :salary, class: "form-control" %>
-            </div>
-            <div class="form-group">
-                <%= f.label :description, t('.description') %>
-                <%= f.text_area :description, class: "form-control" %>
-            </div>
-            <!-- Skills -->
-            <div class="form-group">
-              <%= f.label :skill_list, t('.skills') %><br />
-              <%= f.text_field :skill_list, class: "form-control", value: vacancy_skill_list %>
-            </div>
-            <br/>
-            <div class="btn-group">
-                <%= f.submit t('.edit'), class: "btn btn-success" %>
-            </div>
-            <% end %>
+        <p class="fw-light fs-5 mb-2">Основная информация</p>
+        <div class="mb-3">
+            <%= f.label :job_title, "Заголовок вакансии", class: "form-label fw-bolder" %>
+            <%= f.text_field :job_title, class: "form-control" %>
         </div>
-    </div>
-<div>
+
+        <%= f.hidden_field :company_name, class: "form-control" %>
+
+        <div class="mb-3">
+            <%= f.label :country, "Укажите страну", class: "form-label fw-bolder" %>
+            <%= f.text_field :country, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.label :city_or_state, "Город или штат", class: "form-label fw-bolder" %>
+            <%= f.text_field :city_or_state, class: "form-control" %>
+        </div>
+
+        <hr/>
+        <p class="fw-light fs-5 mb-2">Укажите детали работы</p>
+        <div class="mb-3">
+            <%= f.label :work_experience, "Опыт работы", class: "form-label fw-bolder" %>
+            <%= f.collection_select :work_experience, Vacancy.work_experiences.map{|we| [we.first, we.second]}, :first, :second, {}, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.label :job_type, "Тип работы", class: "form-label fw-bolder" %>
+            <%= f.collection_select :job_type, Vacancy.job_types.map{|tp| [tp.first, tp.second]}, :first, :second, {}, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.label :schedule_job, "График работы", class: "form-label fw-bolder" %>
+            <%= f.collection_select :schedule_job, Vacancy.schedules.map{|s| [s.first, s.second]}, :first, :second, {}, class: "form-control" %>
+        </div>
+
+        <hr/>
+        <p class="fw-light fs-5 mb-2">Укажите оплату</p>
+        <div class="row row-cols-lg-auto">
+
+            <div class="mb-3 col-lg-3">
+                <%= f.label :from, "От", class: "form-label fw-normal" %>
+                <%= f.text_field :from, class: "form-control" %>
+            </div>
+            <div class="mb-3 col-lg-3">
+                <%= f.label :to, "До", class: "form-label fw-normal" %>
+                <%= f.text_field :to, class: "form-control" %>
+            </div>
+            <div class="mb-3 col-lg-2">
+                <%= f.label :currency, "Валюта", class: "form-label fw-normal" %>
+                <%= f.select(:currency, [[t('.rub'), 'rub'], [t('.usd'), 'usd'], [t('.eur'), 'eur']], {}, class: "form-control") %>
+            </div>
+            <div class="mb-3 col-lg-2">
+                <%= f.label :rate, "Ставка", class: "form-label fw-normal" %>
+                <%= f.select(:rate, [[t('.hour'), 'hour'], [t('.day'), 'day'], [t('.week'), 'week'], [t('.month'), 'month'], [t('.year'), 'year']], {}, class: "form-control") %>
+            </div>
+        </div>
+
+        <hr/>
+        <p class="fw-light fs-5 mb-2">Описание вакансии</p>
+        <div class="mb-3">
+            <%= f.label :description, "Подробная информация о вакансии", class: "form-label fw-bolder" %>
+            <%= f.rich_text_area :description %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.label :first_name, "Имя", class: "form-label fw-bolder" %>
+            <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :last_name, "Фамилия", class: "form-label fw-bolder" %>
+            <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :phone, "Номер телефона", class: "form-label fw-bolder" %>
+            <%= f.text_field :phone, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <%= f.label :email, "Адрес электронной почты", class: "form-label fw-bolder" %>
+            <%= f.text_field :email, class: "form-control" %>
+        </div>
+
+        <hr/>
+        <p class="fw-light fs-5 mb-2">Укажите ключевые навыки вакансии</p>
+        <div class="form-group">
+          <%= f.label :skill_list, t('.skills'), class: "form-label fw-bolder" %><br />
+          <%= f.text_field :skill_list, class: "form-control", value: vacancy_skill_list %>
+        </div>
+
+        <br/>
+        <div class="btn-group">
+            <%= f.submit t('.edit'), class: "btn btn-success" %>
+        </div>
+    <% end %>
+</div>
+

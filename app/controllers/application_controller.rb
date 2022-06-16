@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_locale_from_subdomain
+  before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery with: :exception
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_locale_from_subdomain
+  def set_locale
     # detected_locale = request.host.split('.').first # set locale via subdomen
     detected_locale = request.fullpath.split('/').second # set locale via path
 

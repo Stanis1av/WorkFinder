@@ -1,18 +1,17 @@
 <article class="card shadow bg-body rounded mb-4 resume resume-<%= resume.id %>">
     <div class="card-header">
         <small class="d-inline-block mb-3 text-secondary border-bottom"><%= t('.posted')%>: <%= time_ago_in_words(resume.created_at) %> <%= t('.ago')%>.</small>
-        <h3 class="mb-0"><%= resume.headline %></h3>
+        <h3 class="mb-0"><%= link_to resume.headline, resume_path(id: resume.id), class: "title-link" %></h3>
     </div>
     <div class="card-body">
-        <%#= t('.headline')%> <%#= resume.headline %>
 
         <div class="row">
             <div class="col-4">
-        <% if resume.avatar.attached? %>
-            <%= image_tag resume.avatar, width: 150, class: "rounded img-thumbnail m-2" %>
-        <% else %>
-            <%= image_tag "jobseeker-default.png", width: 150, class: "rounded img-thumbnail m-2" %>
-        <% end %>
+                <% if resume.avatar.attached? %>
+                    <%= image_tag resume.avatar, width: 150, class: "rounded img-thumbnail m-2" %>
+                <% else %>
+                    <%= image_tag "jobseeker-default.png", width: 150, class: "rounded img-thumbnail m-2" %>
+                <% end %>
             </div>
             <div class="col-8">
                 <p class="fs-4"><%= "#{resume.first_name}" %> <%= "#{resume.last_name}" %></p>
@@ -20,11 +19,12 @@
                 <p class="fw-light mb-0"><%= t('.age') %></p>
                 <p><%= resume.age %></p>
                 <p class="fw-light mb-0"><%= t('.current_location') %></p>
-                <p><%= embedded_svg("geo-alt-fill", class: "svg-icon") %>
+                <p><%= image_tag "logos/geo-alt-fill", class: "svg-icon" %>
                 <%= resume.country_of_residence %>, <%= resume.city_or_state_of_residence %>
                 <span class="inline-separator"> • </span><%= is_relocation(resume.relocation) %></p>
 
                 <p class="fw-light mb-0"><%= t('.last_job') %></p>
+
                 <% if resume.work_experiences.present? %>
                     <p><%= resume.work_experiences.last.company %><span class="inline-separator"> • </span><%= resume.work_experiences.last.job_title %></p>
                 <% else %>
@@ -36,11 +36,12 @@
         <hr/>
         <p>
           <%= t('.skills')%>:
+
           <% resume.skills.each do |skill| %>
             <%= link_to skill.name, resumes_skill_path(id: skill) %>
-            <!-- ??? _path(id: skill.id) -->
           <% end %>
         </p>
+
         <%= link_to t('.read_more'), resume_path(id: resume.id), class: "btn btn-sm btn-outline-primary" %>
     </div>
 </article>

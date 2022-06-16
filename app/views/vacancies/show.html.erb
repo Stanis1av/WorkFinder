@@ -1,33 +1,38 @@
-<div class="card mb-3">
-    <div class="card-header">
-        <h3 class="mb-0"><%= @vacancy.job_title %></h3>
-    </div>
-    <div class="card-body">
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <h2 class="mb-1"><%= @vacancy.job_title %></h2>
 
-        <div class="field">
-            <% if @vacancy.logo.attached? %>
-                <%= image_tag @vacancy.logo_thumbnail, class: "img-thumbnail company-logo-profile m-2" %>
-            <% else %>
-                <%= image_tag "employer-default.png", width: 250, class: "vacancy-image img-thumbnail m-2", alt: "vacancy-default-logo" %>
-            <% end %>
-        </div>
+    <p class="fw-light fs-4"><%= @vacancy.employer.name %><span class="inline-separator"> • </span><%= @vacancy.country %>, <%= @vacancy.city_or_state %></p>
+    <p class="fs-4 mb-2"><%= t('.from') %> <%= @vacancy.from %> <%= t('.to') %> <%= @vacancy.to %> <%= currency(@vacancy.currency) %> <%= rate(@vacancy.rate) %></p>
 
-        <p><%= t('.company_name')%>: <%= @vacancy.company_name %></p>
-        <p><%= t('.country')%>: <%= @vacancy.country %></p>
-        <p><%= t('.location')%>: <%= @vacancy.location %></p>
-        <p><%= t('.remote')%>: <%= @vacancy.remote %></p>
-        <p><%= t('.type_of_job')%>: <%= @vacancy.type_of_job %></p>
-        <p><%= t('.salary')%>: <%= @vacancy.salary %></p>
-        <p><%= t('.description')%>: <%= @vacancy.description %></p>
-        <hr/>
-        <p>
-          <%= t('.skills')%>:
-          <% @vacancy.skills.each do |skill| %>
-            <%= link_to skill.name, vacancies_skill_path(id: skill) %>
-          <% end %>
-        </p>
-        <%= link_to t('.edit_vacancy'), edit_vacancy_path, class: "btn btn-primary" %>
-    </div>
-</div>
+    <p class="mb-0"><%= t('.work_experience') %>: <%= work_experience(@vacancy.work_experience) %></p>
+    <p><%= job_type(@vacancy.job_type) %>, <%= schedule_job(@vacancy.schedule_job) %></p>
+
+    <hr/>
+    <p class="fw-light fs-5 mb-2">Подробная информация</p>
+    <p><%= t('.description')%>: <%= @vacancy.description %></p>
+
+    <hr/>
+    <p class="fw-light fs-5 mb-2"><%= t('.skills')%></p>
+    <p>
+      <% @vacancy.skills.each do |skill| %>
+        <%= link_to skill.name, vacancies_skill_path(id: skill), class: "btn btn-primary mb-1" %>
+      <% end %>
+    </p>
+
+    <hr/>
+    <p class="fw-light fs-5 mb-2">Контактная информация</p>
+    <p class="fw-light fs-6 mb-1"><%= @vacancy.first_name %> <%= @vacancy.last_name %></p>
+    <p class="mb-0">Номер телефона: <%= @vacancy.phone %></p>
+    <p class="mb-0">Адрес электронной почты: <%= @vacancy.email %></p>
+    <br/>
+
+    <hr/>
+    <p class="fw-light fs-5 mb-2">Адрес</p>
+    <p><%= image_tag "logos/geo-alt-fill", class: "svg-icon" %> <%= @vacancy.country %>, <%= @vacancy.city_or_state %></p>
+    <br/>
+
+    <%= link_to "Откликнуться", vacancy_path, class: "btn btn-success" %>
+    <%= link_to t('.edit_vacancy'), edit_vacancy_path, class: "btn btn-primary" %>
+
 </div>
 

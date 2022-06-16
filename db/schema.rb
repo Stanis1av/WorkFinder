@@ -156,11 +156,18 @@ ActiveRecord::Schema.define(version: 2022_06_11_051451) do
     t.string "job_title"
     t.string "company_name"
     t.string "country"
-    t.string "location"
-    t.boolean "remote"
-    t.string "type_of_job"
-    t.string "salary"
-    t.string "description"
+    t.string "city_or_state"
+    t.string "work_experience"
+    t.string "job_type"
+    t.string "schedule_job"
+    t.string "from"
+    t.string "to"
+    t.string "currency"
+    t.string "rate"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone"
+    t.string "email"
     t.bigint "employer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,0 +1,37 @@
+<%= form_with model: @vacancy, url: wizard_path, method: :patch do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="error_messages">
+      <% f.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Предоставьте основную информацию о вакансии</legend>
+
+    <div class="mb-3">
+        <%= f.label :job_title, "Заголовок вакансии", class: "form-label fw-bolder" %>
+        <%= f.text_field :job_title, class: "form-control" %>
+    </div>
+
+    <%= f.hidden_field :company_name, value: @employer.name, class: "form-control" %>
+
+    <div class="mb-3">
+        <%= f.label :country, "Укажите страну", class: "form-label fw-bolder" %>
+        <%= f.text_field :country, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= f.label :city_or_state, "Город или штат", class: "form-label fw-bolder" %>
+        <%= f.text_field :city_or_state, class: "form-control" %>
+    </div>
+
+    <br/>
+
+    <div>
+      <%= link_to 'Назад', vacancies_path, class: "btn" %> <%# NOTE the _top target %>
+      <%= f.submit 'Следующий щаг', class: "btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>
